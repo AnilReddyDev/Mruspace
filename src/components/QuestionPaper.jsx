@@ -1,64 +1,52 @@
 import React, { useState } from 'react'
 
 export default function QuestionPaper() {
-  const [showSoe,setShowSoe] = useState(false)
-  const [showSas,setShowSas] = useState(false)
-  const switchSoeBtn = ()=>{
-    if(showSoe===false){
-      setShowSoe(true)
-      setShowSas(false)
+  const [query,setQuery] = useState("")
+  const btns = [
+    {key:1,subject:"Java" },
+    {key:2,subject:"Python" },
+    {key:3,subject:"OOSE"},
+    {key:4,subject:"DAA"},
+    {key:5,subject:"Web Dev"},
+    {key:6,subject:"English"},
+    {key:7,subject:"BEEE"},
+    {key:8,subject:"DV"},
+    {key:9,subject:"DM"},
+    {key:10,subject:"PS"}
+  ]
+  const getFilterSubjects = (query,items)=>{
+    if(!items){
+      return items
     }else{
-      setShowSoe(false)
+      return btns.filter((item)=> item.subject.toLowerCase().includes(query))
     }
   }
-  const switchSasBtn = ()=>{
-    if(showSas===false){
-      setShowSas(true)
-      setShowSoe(false)
-    }else{
-      setShowSas(false)
-    }
-  }
-
+  const filteredSubjects = getFilterSubjects(query,btns)
   return (
-    <>
-      <main className='bg-white h-screen flex flex-col justify-start items-center dark:bg-black'>
-        <h1 className='text-black font-bold text-4xl mt-24 mb-10 dark:text-white'>Previous question papers</h1>
-        <input type="text" name="qnsearch" className='w-1/2 h-12 outline-none rounded-xl bg-slate-300 text-black placeholder:text-gray-900 dark:bg-mruLiteGray dark:text-white px-9 dark:placeholder:text-white ' placeholder="Search for anything..." />
-        <div className='text-white flex justify-center items-center'>
-          <button  onClick={switchSoeBtn} className='mx-8 my-12 pb-2 text-2xl text-black font-medium focus:border-b-4 focus:border-mruOrange dark:text-white'>SOE</button>
-          <button onClick={switchSasBtn} className='mx-8 my-12 pb-2 text-2xl text-black font-medium focus:border-b-4 focus:border-mruOrange dark:text-white'>SAS</button>
+    <div>
+      <main>
+        <div className='flex w-128 bg-white'>
+          <div className='w-1/4'>
+            <input type="text" name="qnsearch" value={query} onChange={(e)=>setQuery(e.target.value.toLowerCase())} className=' w-auto h-10 box-border bg-slate-300 rounded-sm px-3 text-black outline-none placeholder:text-black' placeholder='search for subject..'/>
+          </div>
+          <div className='w-3/4 bg-white h-10 box-border overflow-y-hidden relative'>
+            {
+              filteredSubjects.map((btn) => {
+                return <button className='bg-mruOrange w-28 h-10 mx-3' key={btn.key}>{btn.subject}</button>
+              })
+            }
+          </div>
         </div>
-        {
-          showSoe === true && <div className='flex w-2/3 flex-wrap justify-center items-center'>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Web Dev</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Web Dev</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Web Dev</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Web Dev</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Web Dev</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Web Dev</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Web Dev</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Web Dev</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Web Dev</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Web Dev</button>
-        </div>
-        }
-        {
-          showSas === true && <div className='flex w-2/3 flex-wrap justify-center items-center'>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Enatomy</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Enatomy</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Enatomy</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Enatomy</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Enatomy</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Enatomy</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Enatomy</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Enatomy</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Enatomy</button>
-          <button className=' m-5 bg-slate-400 px-8 py-4  rounded-xl text-black font-medium text-lg focus:bg-mruOrange dark:focus:bg-mruOrange dark:bg-mruLiteGray dark:text-white'>Enatomy</button>
-        </div>
-        }
+        <div className='flex'>
+          {/* container which is holding the left and right containers */}
+          <div className="leftcon w-1/4  h-screen bg-white border-4 box-border border-black">
 
+          </div>
+          <div className="rightcon w-3/4 h-5 bg-white border-4 box-border border-black">
+
+          </div>
+        </div>
       </main>
-    </>
+    </div>
   )
 }
