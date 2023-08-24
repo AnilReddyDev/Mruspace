@@ -21,7 +21,6 @@ export default function Header() {
 
     const toggleTheme = () => {
         setTheme(theme === "dark" ? "light" : "dark");
-        console.log(theme)
     };
 
 
