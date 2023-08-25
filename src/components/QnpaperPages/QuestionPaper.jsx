@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import QnComponent from './QnpaperPages/QnComponent';
+import QnComponent from './QnComponent';
 
 export default function QuestionPaper() {
   // State to manage the search query and currently selected subject
@@ -38,29 +38,29 @@ export default function QuestionPaper() {
   return (
     <div>
       <main>
-        <div className='flex w-128 bg-white'>
-          {/* Search input */}
-          <div className='w-1/4'>
-            <input
-              type="text"
-              name="qnsearch"
-              value={query}
-              onChange={(e) => setQuery(e.target.value.toLowerCase())}
-              className='w-auto h-10 box-border bg-slate-300 rounded-sm px-3 text-black outline-none placeholder:text-black'
-              placeholder='search for subject..'
-            />
-          </div>
+        <div className='flex w-128 bg-white dark:bg-black'>
           {/* Subject buttons */}
-          <div className='w-3/4 bg-white h-10 box-border overflow-y-hidden relative'>
+          <div className='w-3/4  h-10 box-border overflow-y-hidden relative  m-2'>
             {filteredSubjects.map((btn) => (
               <button
-                className='bg-mruOrange w-28 h-10 mx-3'
+                className='focus:bg-mruOrange w-28 h-10 mx-3 text-black dark:text-white'
                 onClick={() => setSubName(`${btn.subject}`)}
                 key={btn.key}
               >
                 {btn.subject}
               </button>
             ))}
+          </div>
+          {/* Search input */}
+          <div className='w-1/4 m-2 flex'>
+            <input
+              type="text"
+              name="qnsearch"
+              value={query}
+              onChange={(e) => setQuery(e.target.value.toLowerCase())}
+              className='w-auto h-10 box-border bg-slate-300 rounded-sm px-3 text-black outline-none placeholder:text-black dark:placeholder:text-white dark:bg-mruLiteGray'
+              placeholder='search for subject..'
+            />
           </div>
         </div>
         {/* Component to display questions papers based on the selected subject */}

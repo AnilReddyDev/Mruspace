@@ -27,13 +27,16 @@ export default {
         mruOrange:"#F16522",
         mruLiteOrange:"#421C09",
         mruLiteGray:"#3D3D3D",
-        mruMediumGray:"#141414"
+        mruMediumGray:"#141414",
+        mrulistconbg:"#131313"
       },
       blue:{
         450:"#5F99F7"
       },
       width: {
         '128': '100%',
+        "leftcon":"20%",
+        "rightcon":"80%"
       }
     },
   },

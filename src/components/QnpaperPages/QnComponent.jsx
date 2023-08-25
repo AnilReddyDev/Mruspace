@@ -14,7 +14,7 @@ export default function QnComponent({ subName }) {
   // Information about different question papers and their links
   const qnBtninfo = {
     Python: {
-      diffpapers: ["mid-1", "mid-2", "sem"], // Names of different question papers
+      diffpapers: ["MID 1 2023", "MID 2 2023", "SEM 2023"], // Names of different question papers
       links: [
         "https://mruspace.in/static/media/PP-MID1-P1.5e349ceacffd22c1d041.jpg",
         "https://mruspace.in/static/media/PP-MID2-P1.84d52f7b5e1a98a0d1e6.jpg",
@@ -22,7 +22,7 @@ export default function QnComponent({ subName }) {
       ], // Links to question paper resources
     },
     Java: {
-      diffpapers: ["mid-1", "mid-2", "sem"],
+      diffpapers: ["MID 1 2023", "MID 2 2023", "SEM 2023"],
       links: [
         "https://mruspace.in/static/media/JAVA-MID1-P1-1.3d335cd628d4ae4c7e18.png",
         "https://mruspace.in/static/media/JAVA-MID2-P1.ce5e35b0553e0ef458c3.jpg",
@@ -38,24 +38,23 @@ export default function QnComponent({ subName }) {
 
 
   return (
-    <div className='flex'>
+    <div className='flex h-screen bg-white text-black dark:bg-black dark:text-white'>
       {/* Left container to display question paper buttons */}
-      <div className="leftcon w-1/4 h-screen bg-white border-4 box-border border-black">
+      <div className="leftcon w-leftcon h-3/4 py-3 flex flex-col justify-start text-black items-center bg-slate-100  box-border  dark:text-white dark:bg-mrulistconbg">
         {/* Mapping through different question paper names */}
         {currentSubject &&
           currentSubject.diffpapers.map((e) => (
-            <button key={e} className='bg-mruOrange p-5 m-2' onClick={() => setSpecificQn(e)}>
+            <button key={e} className='focus:bg-mruOrange flex  py-2 px-6 w-128 text-base' onClick={() => setSpecificQn(e)}>
               {e}
             </button>
           ))}
       </div>
       {/* Right container */}
-      <div className="rightcon w-3/4 h-auto flex justify-center items-center bg-white border-4 box-border border-black">
-        {specificQn === "mid-1" && <img className='w-3/4' src={currentSubject.links[0]} alt="qn" />}
-        {specificQn === "mid-2" && <img className='w-3/4' src={currentSubject.links[1]} alt="qn" />}
-        {specificQn === "sem" && <img className="w-2/4 h-3/4" src={currentSubject.links[2]} alt="qn" />}
+      <div className="rightcon w-rightcon flex justify-center items-center bg-white box-border dark:bg-black">
+        {specificQn === "MID 1 2023" && <img className='w-3/4 h-3/4' src={currentSubject.links[0]} alt="qn" />}
+        {specificQn === "MID 2 2023" && <img className='w-3/4' src={currentSubject.links[1]} alt="qn" />}
+        {specificQn === "SEM 2023" && <img className="w-2/4 h-3/4" src={currentSubject.links[2]} alt="qn" />}
       </div>
     </div>
   );
 }
-
