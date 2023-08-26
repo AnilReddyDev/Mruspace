@@ -5,9 +5,9 @@ import Header from './components/Header'
 import Home from './components/Home'
 import About from './components/About'
 import QuestionPaper from './components/QnpaperPages/QuestionPaper'
-import Programs from './components/Programs'
+import Programs from './components/ProgramPages/Programs'
 import Materials from './components/MaterialPages/Materials'
-import Clubs from './components/Clubs'
+import Clubs from './components/ClubPages/Clubs'
 import Community from './components/Community'
 
 function App() {
