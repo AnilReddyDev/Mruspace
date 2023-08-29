@@ -40,7 +40,7 @@ export default function QnComponent({ subName }) {
   return (
     <div className='flex h-screen bg-white text-black dark:bg-black dark:text-white'>
       {/* Left container to display question paper buttons */}
-      <div className="leftcon w-leftcon h-3/4 py-3 flex flex-col justify-start text-black items-center bg-slate-100  box-border  dark:text-white dark:bg-mrulistconbg">
+      <div className="leftcon w-leftcon h-3/4 py-3 flex flex-col justify-start text-black items-center bg-slate-100  box-border  dark:text-white dark:bg-mruListConbg">
         {/* Mapping through different question paper names */}
         {currentSubject &&
           currentSubject.diffpapers.map((e) => (

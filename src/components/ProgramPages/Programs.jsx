@@ -10,10 +10,10 @@ export default function Programs() {
   // List of subject buttons
   const btns = [
     {key:1,subject:"Python_Programming" },
-  {key:2,subject:"Data Structures using python" },
+  {key:2,subject:"Data_Structures_using_python" },
   {key:3,subject:"Web_Development"},
-  {key:4,subject:"Java Programming"},
-  {key:5,subject:"AI Programming"},
+  {key:4,subject:"Java_Programming"},
+  {key:5,subject:"AI_Programming"},
     // ... other subjects
   ];
 
@@ -34,7 +34,7 @@ export default function Programs() {
   return (
     <div>
       <main>
-        <div className='flex w-128 bg-white dark:bg-black'>
+        <div className='flex w-128 bg-white border-b-2 border-slate-200 dark:bg-black dark:border-stone-900'>
           {/* Subject buttons */}
           <div className='w-3/4  h-10 box-border overflow-y-hidden relative  m-2'>
             {filteredSubjects.map((btn) => (

@@ -28,7 +28,7 @@ export default {
         mruLiteOrange:"#421C09",
         mruLiteGray:"#3D3D3D",
         mruMediumGray:"#141414",
-        mrulistconbg:"#131313"
+        mruListConbg:"#131313"
       },
       blue:{
         450:"#5F99F7"
