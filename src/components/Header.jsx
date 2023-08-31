@@ -31,8 +31,8 @@ export default function Header() {
                 <li className='cursor-pointer text-base mx-4 font-medium' onClick={()=>navigate("/qnpapers")}>Question papers</li>
                 <li className='cursor-pointer text-base mx-4 font-medium' onClick={()=>navigate("/programs")}>Programs</li>
                 <li className='cursor-pointer text-base mx-4 font-medium' onClick={()=>navigate("/materials")}>Materials</li>
-                <li className='cursor-pointer text-base mx-4 font-medium' onClick={()=>navigate("/clubs")}>Clubs</li>
-                <li className='cursor-pointer text-base mx-4 font-medium' onClick={()=>navigate("/community")}>Community</li>
+                <li className='cursor-pointer text-base mx-4 font-medium' onClick={()=>navigate("/blogs")}>Blogs</li>
+                <li className='cursor-pointer text-base mx-4 font-medium' onClick={()=>navigate("/Contribute")}>Contribute</li>
             </ul>
             <ul className='flex justify-between items-center text-black p-4 dark:text-white'>
                 <li className='cursor-pointer px-4'><button onClick={toggleTheme} className='flex justify-between items-center'>{theme === "dark" ? <img src={sunimg} className='w-6 h-6' alt="sun" /> : <img src={moonimg} className='w-4 h-4' alt="moon" />}</button></li>

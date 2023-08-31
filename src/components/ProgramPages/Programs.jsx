@@ -4,8 +4,9 @@ import PrgmComponent from './PrgmComponent';
 export default function Programs() {
   // State to manage the search query and currently selected subject
   const [query, setQuery] = useState("");
-  const [subName, setSubName] = useState("Python_Programming");
+  const [selectedSubjectbtn, setSelectedSubjectbtn] = useState("Python_Programming");
 
+ 
 
   // List of subject buttons
   const btns = [
@@ -39,9 +40,15 @@ export default function Programs() {
           <div className='w-3/4  h-10 box-border overflow-y-hidden relative  m-2'>
             {filteredSubjects.map((btn) => (
               <button
-                className='focus:bg-mruOrange px-4 h-10 mx-2 text-black dark:text-white'
-                onClick={() => setSubName(`${btn.subject}`)}
+                className=' px-4 h-10 mx-2 text-black dark:text-white'
+                onClick={() => {
+                  setSelectedSubjectbtn(btn.subject);
+                }}
                 key={btn.key}
+                style={{ 
+                  backgroundColor: selectedSubjectbtn === btn.subject ? "#F16522" : "",
+                  color: selectedSubjectbtn === btn.subject ? "black dark:white" : "",
+                }}
               >
                 {btn.subject}
               </button>
@@ -60,7 +67,7 @@ export default function Programs() {
           </div>
         </div>
         {/* Component to display questions papers based on the selected subject */}
-        <PrgmComponent subName={subName}/>
+        <PrgmComponent subName={selectedSubjectbtn}/>
       </main>
     </div>
   );

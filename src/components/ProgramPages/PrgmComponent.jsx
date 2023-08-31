@@ -5,8 +5,8 @@ export default function PrgmComponent({ subName }) {
 
   // State to keep track of the currently selected subject and specific of paper selected(ex:mid1)
   const [subject, setSubject] = useState(subName);
-  const [specificQn, setSpecificQn] = useState("");
-  
+  const [specificQn, setSpecificQn] = useState("sumofnum");
+
   const [pquery, setPquery] = useState("")
   const getFilteredPrgms = (pquery, items) => {
     if (!pquery) {
@@ -126,7 +126,7 @@ export default function PrgmComponent({ subName }) {
           { prgmBtnDisplayList: "TowerOfHanoi Recurrsion", specificQnList: "aitowerofhanoirecurrsion" },
           { prgmBtnDisplayList: "TowerOfHanoi Iteration", specificQnList: "aiP5towerofiteration" },
           { prgmBtnDisplayList: "4Queens using CSP", specificQnList: "aiP6Q4queens" },
-          { prgmBtnDisplayList: "Baye’s Theorem", specificQnList: "aiP7bayestheroem" },
+          { prgmBtnDisplayList: "Bayes Theorem", specificQnList: "aiP7bayestheroem" },
           { prgmBtnDisplayList: "P(rain | cloudy)", specificQnList: "aiP8Araincloudy" },
           { prgmBtnDisplayList: "A* for given graph", specificQnList: "aiP9Astarforgivenalgo" },
           { prgmBtnDisplayList: "FOL forward chaining", specificQnList: "aiP10FOLFC" },
@@ -139,7 +139,7 @@ export default function PrgmComponent({ subName }) {
     // Add more subjects and their corresponding question paper information
   };
 
-  // Get the question paper information for the currently selected subject
+  // Get the question programs information for the currently selected subject
   const currentSubject = qnBtninfo[subject];
   //  const filteredPrgms = getFilteredPrgms(pquery,currentSubject.prgmList)
 
@@ -152,7 +152,15 @@ export default function PrgmComponent({ subName }) {
         {currentSubject &&
           //   currentSubject.prgmList
           currentSubject.prgmList.map((e) => (
-            <button key={e.specificQnList} className='focus:bg-mruOrange flex  py-2 px-6 w-128 text-base' onClick={() => setSpecificQn(e.specificQnList)}>
+            <button key={e.specificQnList} className=' flex  py-2 px-6 w-128 text-base' 
+            onClick={() => {
+              setSpecificQn(e.specificQnList);
+            }}
+            style={{
+              backgroundColor: specificQn === e.specificQnList ? "#F16522" : "",
+              color: specificQn === e.specificQnList ? "black dark:white" : "",
+            }}
+            >
               {e.prgmBtnDisplayList}
             </button>
           ))}

@@ -7,9 +7,8 @@ import About from './components/About'
 import QuestionPaper from './components/QnpaperPages/QuestionPaper'
 import Programs from './components/ProgramPages/Programs'
 import Materials from './components/MaterialPages/Materials'
-import Clubs from './components/ClubPages/Clubs'
-import Community from './components/Community'
-
+import Contribute from './components/Contributions/contribute'
+import Blogs from './components/Blogs/Blogs'
 function App() {
 
   return (
@@ -22,8 +21,9 @@ function App() {
     <Route path='/qnpapers' element={<QuestionPaper/>}/>
     <Route path='/programs' element={<Programs/>}/>
     <Route path='/materials' element={<Materials/>}/>
-    <Route path='/clubs' element={<Clubs/>}/>
-    <Route path='/community' element={<Community/>}/>
+    <Route path='/contribute' element={<Contribute/>}/>
+    <Route path='/blogs' element={<Blogs/>}/>
+
    </Routes>
    </BrowserRouter>
     </>
