@@ -37,7 +37,7 @@ export default function Programs() {
       <main>
         <div className='flex w-128 bg-white border-b-2 border-slate-200 dark:bg-black dark:border-stone-900'>
           {/* Subject buttons */}
-          <div className='w-3/4  h-10 box-border overflow-y-hidden relative  m-2'>
+          <div className='w-auto  h-10 box-border flex overflow-auto relative  m-2'>
             {filteredSubjects.map((btn) => (
               <button
                 className=' px-4 h-10 mx-2 text-black dark:text-white'
@@ -55,14 +55,14 @@ export default function Programs() {
             ))}
           </div>
           {/* Search input */}
-          <div className='w-1/4 m-2 flex'>
+          <div className='w-auto pl-2 pr-10 m-2 flex'>
             <input
               type="text"
               name="qnsearch"
               value={query}
               onChange={(e) => setQuery(e.target.value.toLowerCase())}
-              className='w-auto h-10 box-border bg-slate-300 rounded-sm px-3 text-black dark:text-white outline-none placeholder:text-black dark:placeholder:text-white dark:bg-mruLiteGray'
-              placeholder='search for subject..'
+              className='w-10 focus:w-56  h-10 box-border transition-all duration-700 ease-in-out bg-slate-300 rounded-sm px-3 text-black dark:text-white outline-none placeholder:text-black dark:placeholder:text-white dark:bg-mruLiteGray'
+              placeholder='🔍 search for subject..'
             />
           </div>
         </div>

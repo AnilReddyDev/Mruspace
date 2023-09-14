@@ -12,11 +12,12 @@ export default function MaterialComponent({subName}) {
   }, [subName]);
 
   const materialLinks = {
-    Python:["link1","link2"],
+    Python:["Python Q & A"],
     Java:["link1","link2"],
     Beee:["link1","link2"]
   }
-
+  const imageUrl = "https://media.istockphoto.com/id/636379014/photo/hands-forming-a-heart-shape-with-sunset-silhouette.jpg?s=612x612&w=0&k=20&c=CgjWWGEasjgwia2VT7ufXa10azba2HXmUDe96wZG8F0="
+  
   const currentSubject = materialLinks[subject];
   console.log(currentSubject)
   return (

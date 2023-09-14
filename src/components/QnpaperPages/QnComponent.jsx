@@ -16,17 +16,49 @@ export default function QnComponent({ subName }) {
     Python: {
       diffpapers: ["MID 1 2023", "MID 2 2023", "SEM 2023"], // Names of different question papers
       links: [
-        "https://mruspace.in/static/media/PP-MID1-P1.5e349ceacffd22c1d041.jpg",
-        "https://mruspace.in/static/media/PP-MID2-P1.84d52f7b5e1a98a0d1e6.jpg",
-        "https://mruspace.in/static/media/PP-SEM-P1.58a0c570dbb5d3eb0998.jpg",
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/PP-MID1-P1.jpg?raw=true",
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/PP-MID2-P1.jpg?raw=true",
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/PP-SEM-P1.jpg?raw=true",
       ], // Links to question paper resources
     },
     Java: {
       diffpapers: ["MID 1 2023", "MID 2 2023", "SEM 2023"],
       links: [
-        "https://mruspace.in/static/media/JAVA-MID1-P1-1.3d335cd628d4ae4c7e18.png",
-        "https://mruspace.in/static/media/JAVA-MID2-P1.ce5e35b0553e0ef458c3.jpg",
-        "https://mruspace.in/static/media/JAVA-SEM23-P1.f5c6e558a0fb903635dc.jpg",
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/JAVA-MID1-P1-1.png?raw=true",
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/JAVA-MID2-P1.jpg?raw=true",
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/JAVA-SEM23-P1.jpg?raw=true",
+      ],
+    },
+    OOSE: {
+      diffpapers: ["MID 1 2023", "MID 2 2023", "SEM 2023"],
+      links: [
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/OOSE-MID1-P1-1.png?raw=true",
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/OOSE-MID2-P1.jpg?raw=true",
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/OOSE-SEM23-P1.jpg?raw=true",
+      ],
+    },
+    DAA: {
+      diffpapers: ["MID 1 2023", "MID 2 2023", "SEM 2023"],
+      links: [
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/DAA-MID1-P1-1.png?raw=true",
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/DAA-MID2-P1.jpg?raw=true",
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/DAA-SEM23-P1.jpg?raw=true",
+      ],
+    },
+    Web_Dev: {
+      diffpapers: ["MID 1 2023", "MID 2 2023", "SEM 2023"],
+      links: [
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/WDD-MID1-P1.jpg?raw=true",
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/WDD-MID2-P1.jpg?raw=true",
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/WDD-SEM-P1-1.png?raw=true",
+      ],
+    },
+    English: {
+      diffpapers: ["MID 1 2023", "MID 2 2023", "SEM 2023"],
+      links: [
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/WDD-MID1-P1.jpg?raw=true",
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/WDD-MID2-P1.jpg?raw=true",
+        "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/WDD-SEM-P1-1.png?raw=true",
       ],
     },
     // Add more subjects and their corresponding question paper information
@@ -44,7 +76,14 @@ export default function QnComponent({ subName }) {
         {/* Mapping through different question paper names */}
         {currentSubject &&
           currentSubject.diffpapers.map((e) => (
-            <button key={e} className='focus:bg-mruOrange flex  py-2 px-6 w-128 text-base' onClick={() => setSpecificQn(e)}>
+            <button key={e} 
+            className='focus:bg-mruOrange flex  py-2 px-6 w-128 text-base'
+             onClick={() => setSpecificQn(e)}
+             style={{
+              backgroundColor: specificQn === e ? "#F16522" : "",
+              color: specificQn === e ? "black dark:white" : "",
+            }}
+             >
               {e}
             </button>
           ))}

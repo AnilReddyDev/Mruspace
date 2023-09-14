@@ -1,5 +1,4 @@
 import React from 'react'
-
 export default function Home() {
   return (
     <main className='bg-white h-screen flex justify-center items-center dark:bg-black'>
