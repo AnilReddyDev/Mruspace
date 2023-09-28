@@ -8,7 +8,7 @@ export default function QuestionPaper() {
 
   // List of subject buttons
   const btns = [
-    {key:1,subject:"Java" },
+  {key:1,subject:"Java" },
   {key:2,subject:"Python" },
   {key:3,subject:"OOSE"},
   {key:4,subject:"DAA"},
@@ -17,12 +17,24 @@ export default function QuestionPaper() {
   {key:7,subject:"BEEE"},
   {key:8,subject:"DV"},
   {key:9,subject:"DM"},
-  {key:10,subject:"PS"},
-  {key:10,subject:"PdS"},
-  {key:11,subject:"PxS"},
-  {key:12,subject:"PsS"},
-  {key:13,subject:"PdfS"},
-  {key:14,subject:"PfS"}
+  {key:10,subject:"M1"},
+  {key:10,subject:"M2"},
+  {key:11,subject:"OS"},
+  {key:12,subject:"AP"},
+  {key:13,subject:"DSP"},
+  {key:14,subject:"DBMS"},
+  {key:15,subject:"CN"},
+  {key:16,subject:"AI"},
+  {key:17,subject:"MLDS"},
+  {key:18,subject:"CCS"},
+  {key:19,subject:"SM"},
+  {key:20,subject:"TCSS"},
+  {key:21,subject:"FIMS"},
+  {key:22,subject:"FAM"},
+  {key:23,subject:"CAEG"},
+  {key:24,subject:"FRENCH"},
+  {key:25,subject:"EVS"},
+  {key:26,subject:"HVPE"},
     // ... other subjects
   ];
 
@@ -45,7 +57,7 @@ export default function QuestionPaper() {
       <main>
         <div className='flex w-128 bg-white border-b-2 border-slate-200 dark:bg-black dark:border-stone-900'>
           {/* Subject buttons */}
-          <div className='w-auto h-10 auto box-border scrollbar-hide flex overflow-auto  relative  m-2'>
+          <div className='w-auto h-10 auto box-border  flex overflow-auto  relative  m-2'>
             {filteredSubjects.map((btn) => (
               <button
                 className='focus:bg-mruOrange px-5 h-10 mx-3 text-black dark:text-white'
