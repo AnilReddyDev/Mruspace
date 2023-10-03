@@ -25,7 +25,7 @@ export default function Header() {
 
 
     return (
-        <header className=' bg-white h-20 flex justify-between items-center border-b-2 border-slate-200 dark:bg-black dark:border-stone-900'>
+        <header className=' bg-white h-headerH flex justify-between items-center border-b-2 border-slate-200 dark:bg-black dark:border-stone-900'>
             <ul className='flex justify-between items-center text-black p-4 dark:text-white'>
                 <li className='cursor-pointer mr-14 ml-3 flex justify-center items-center' onClick={()=>navigate("/")}><span className='mr-2'><img src={mrulogo} className='w-8 h-10' alt="mru logo"/></span><span className='text-2xl font-bold'>MRU</span><span className='text-2xl font-bold text-mruOrange'>Space</span></li>
                 <li className='cursor-pointer text-base mx-4 font-medium' onClick={()=>navigate("/qnpapers")}>Question papers</li>

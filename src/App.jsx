@@ -2,13 +2,14 @@ import './App.css'
 import React, { useEffect } from 'react'
 import { BrowserRouter,Route,Routes } from 'react-router-dom'
 import Header from './components/Header'
-import Home from './components/Home'
-import About from './components/About'
+import Home from './components/Home/Home'
+import About from './components/About/About'
 import QuestionPaper from './components/QnpaperPages/QuestionPaper'
 import Programs from './components/ProgramPages/Programs'
 import Materials from './components/MaterialPages/Materials'
 import Contribute from './components/Contributions/contribute'
 import Blogs from './components/Blogs/Blogs'
+import ShowBlog from './components/Blogs/ShowBlog'
 function App() {
 
   return (
@@ -23,6 +24,7 @@ function App() {
     <Route path='/materials' element={<Materials/>}/>
     <Route path='/contribute' element={<Contribute/>}/>
     <Route path='/blogs' element={<Blogs/>}/>
+    <Route path='/blogs/figma' element={<ShowBlog/>}/>
 
    </Routes>
    </BrowserRouter>

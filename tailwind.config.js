@@ -36,7 +36,11 @@ export default {
       width: {
         '128': '100%',
         "leftcon":"20%",
-        "rightcon":"80%"
+        "rightcon":"80%",
+      },
+      height:{
+        "headerH":"10vh",
+        "bodyH":"90vh"
       }
     },
   },
