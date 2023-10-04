@@ -4,25 +4,21 @@ import MaterialComponent from './MaterialComponent';
 export default function Materials() {
   // State to manage the search query and currently selected subject
   const [query, setQuery] = useState("");
-  const [subName, setSubName] = useState("Java");
+  const [subName, setSubName] = useState("M2");
 
   // List of subject buttons
   const btns = [
-    {key:1,subject:"Java" },
-  {key:2,subject:"Python" },
-  {key:3,subject:"OOSE"},
-  {key:4,subject:"DAA"},
-  {key:5,subject:"Web Dev"},
-  {key:6,subject:"English"},
-  {key:7,subject:"BEEE"},
-  {key:8,subject:"DV"},
-  {key:9,subject:"DM"},
-  {key:10,subject:"PS"},
-  {key:11,subject:"PS"},
-  {key:12,subject:"PS"},
-  {key:13,subject:"PS"},
-  {key:14,subject:"PS"},
-  {key:15,subject:"PS"},
+    {key:1,subject:"M2" },
+  {key:2,subject:"AI" },
+  {key:3,subject:"Python"},
+  {key:4,subject:"DBMS"},
+  {key:5,subject:"BEEE"},
+  {key:6,subject:"DV"},
+  {key:7,subject:"OOSE"},
+  {key:8,subject:"M1"},
+  {key:9,subject:"AP"},
+  {key:10,subject:"DAA"},
+
     // ... other subjects
   ];
 
