@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import img from '../assests/img/x.png';
 import m2mid1 from '../assests/materials/m-2 mid1.46df12c34cac70b8b5e2.pdf'
 import m2mid2 from '../assests/materials/m-2 mid2.56fe561344d8aa963086.pdf'
 import Aisem from '../assests/materials/AI_SEM_ANS.a2f7288db20651c51498.pdf'
@@ -44,7 +43,7 @@ export default function MaterialComponent({ subName }) {
   console.log(currentSubject);
 
   return (
-    <div className='flex flex-col justify-center items-center h-screen bg-white text-black dark:bg-black dark:text-white'>
+    <div className='flex flex-col justify-center items-center h-childBodyH bg-white text-black dark:bg-black dark:text-white'>
       {currentSubject.map((data) => {
         const linkText = Object.keys(data)[0]; // Get the link text
         const linkUrl = data[linkText]; // Get the link URL

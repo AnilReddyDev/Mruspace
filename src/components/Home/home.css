@@ -3,19 +3,19 @@
     padding: 0;
 }
 
-.text {
-    font-size: 3em;
+.textLD {
     letter-spacing: 5px;
     font-family: monospace;
     border-right: 5px solid;
     width: 100%;
-    white-space: nowrap;
     overflow: hidden;
     animation: 
     typing 2.5s steps(22) infinite alternate,
         cursor .4s step-end infinite alternate;
 }
-
+.textSD{
+    font-size: 1em;
+}
 
 @keyframes cursor {
     50% {

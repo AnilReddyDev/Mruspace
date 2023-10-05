@@ -37,10 +37,13 @@ export default {
         '128': '100%',
         "leftcon":"20%",
         "rightcon":"80%",
+        "90per":"90%"
       },
       height:{
         "headerH":"10vh",
-        "bodyH":"90vh"
+        "childHeaderH":"5vh",
+        "bodyH":"90vh",
+        "childBodyH":"85vh",
       }
     },
   },

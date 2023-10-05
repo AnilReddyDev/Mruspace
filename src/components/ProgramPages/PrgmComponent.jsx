@@ -144,7 +144,7 @@ export default function PrgmComponent({ subName }) {
   //  const filteredPrgms = getFilteredPrgms(pquery,currentSubject.prgmList)
 
   return (
-    <div className='flex h-screen overflow-auto bg-white text-black dark:bg-black dark:text-white'>
+    <div className='flex h-childBodyH overflow-auto bg-white text-black dark:bg-black dark:text-white'>
       {/* Left container to display question paper buttons */}
       <div className="leftcon sticky top-5 w-leftcon h-3/4 py-3 overflow-y-auto flex flex-col justify-start text-black items-center bg-slate-200  box-border  dark:text-white dark:bg-mruListConbg">
         {/* <input type="text" name="prgmSerach" className='bg-mruLiteGray w-4/5 ' value={pquery} onChange={(e)=>setPquery(e.target.value.toLowerCase())}/> */}

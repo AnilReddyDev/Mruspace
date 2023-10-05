@@ -17,7 +17,7 @@ export default function About() {
       x:"https://twitter.com/akash_kalwa",
     },
     Aravind:{
-      heading:"AravindSagar.ManualTester",
+      heading:"Aravind.ManualTester",
       paragraph:"Hi Guys! I am a dedicated manual tester with a sharp focus on quality assurance, I meticulously analyze and test software to ensure flawless functionality and enhance user satisfaction.",
       linkedIn:"https://linkedin.com/in/anil-reddy-513866227",
       instagram:"https://instagram.com/aravind_sagar____",
@@ -25,7 +25,7 @@ export default function About() {
     },
   }
   return (
-    <div className='w-128 h-screen flex flex-col justify-start items-center bg-white dark:bg-black'>
+    <div className='w-128 h-auto pt-5 lg:pt-0 lg:h-bodyH flex flex-col justify-start items-center bg-white dark:bg-black'>
         <Profilecard profiledata={profiledata.Anil}/>
         <Profilecard profiledata={profiledata.Akash}/>
         <Profilecard profiledata={profiledata.Aravind}/>

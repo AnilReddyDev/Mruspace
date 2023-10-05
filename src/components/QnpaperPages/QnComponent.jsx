@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from 'react';
-
+import rightarrowblack from "../assests/img/right-arrow-black.png"
+import rightarrowwhite from "../assests/img/right-arrow-white.png"
 export default function QnComponent({ subName }) {
 
   // State to keep track of the currently selected subject and specific of paper selected(ex:mid1)
   const [subject, setSubject] = useState(subName);
   const [specificQn, setSpecificQn] = useState("");
+  const [showLeftCon,setShowLeftcon] = useState(true);
+  const storedThemeColor = localStorage.getItem("theme");
 
+  const toggleLeftCon = () => {
+    setShowLeftcon(!showLeftCon);
+  }
   // Update the subject state when the `subName` prop changes
   useEffect(() => {
     setSubject(subName);
+    setShowLeftcon("true");
   }, [subName]);
 
   // Information about different question papers and their links
@@ -272,34 +279,40 @@ export default function QnComponent({ subName }) {
 
 
   return (
-    <div className='flex h-screen bg-white text-black dark:bg-black dark:text-white'>
+    <div className='flex items-start h-childBodyH box-border bg-white text-black dark:bg-black dark:text-white'>
       {/* Left container to display question paper buttons */}
-      <div className="leftcon w-leftcon h-3/4 py-3 flex flex-col justify-start text-black items-center bg-slate-100  box-border  dark:text-white dark:bg-mruListConbg">
-        {/* Mapping through different question paper names */}
-        {currentSubject &&
-          currentSubject.diffpapers.map((e) => (
-            <button key={e}
-              className='focus:bg-mruOrange flex  py-2 px-6 w-128 text-base'
-              onClick={() => setSpecificQn(e)}
-              style={{
-                backgroundColor: specificQn === e ? "#F16522" : "",
-                color: specificQn === e ? "black dark:white" : "",
-              }}
-            >
-              {e}
-            </button>
-          ))}
-      </div>
+     {
+      showLeftCon &&  <div className="leftcon w-4/5 lg:block lg:w-leftcon h-3/4 py-3 flex flex-col justify-start text-black items-center bg-slate-100  box-border  dark:text-white dark:bg-mruListConbg">
+      {/* Mapping through different question paper names */}
+      {currentSubject &&
+        currentSubject.diffpapers.map((e) => (
+          <button key={e}
+            className='focus:bg-mruOrange flex  py-2 px-6 w-128 text-base'
+            onClick={() => {setSpecificQn(e); toggleLeftCon()}}
+            style={{
+              backgroundColor: specificQn === e ? "#F16522" : "",
+              color: specificQn === e ? "black dark:white" : "",
+            }}
+            
+          >
+            {e}
+          </button>
+        ))}
+    </div>
+     }
+      {
+        storedThemeColor === "light" ? <button className='block ml-3  mt-10' onClick={() => toggleLeftCon()}><img src={rightarrowblack} alt=">" className='w-10' /></button> : <button className='block ml-3 mt-10' onClick={()=>toggleLeftCon()}><img src={rightarrowwhite} alt=">" className='w-10' /></button>
+      }
       {/* Right container */}
       <div className="rightcon w-rightcon h-5/6 flex justify-center items-center bg-white box-border dark:bg-black">
-        {specificQn === ("MID 1 2023") && <img className='w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[0]} alt="qn" />}
-        {specificQn === ("LAB INTERNAL") && <img className='w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[0]} alt="qn" />}
-        {specificQn === ("MID 2 2023") && <img className='w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[1]} alt="qn" />}
-        {specificQn === ("LAB EXTERNAL") && <img className='w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[1]} alt="qn" />}
-        {specificQn === "MID 2 P2 2023" && <div className='w-3/4 h-full overflow-y-auto'>  <img className='w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[1]} alt="qn" /> <img className='w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[3]} alt="qn" /> </div>}
-        {specificQn === "SEM 2023" && <img className="w-3/4 h-full border-2 border-slate-500" src={currentSubject.links[2]} alt="qn" />}
-        {specificQn === "SEM P2 2023" && <div className='w-3/4 h-full overflow-y-auto'>  <img className='w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[2]} alt="qn" /> <img className='w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[4]} alt="qn" /> </div>}
-        {specificQn === "SEM P5 2023" && <div className='w-3/4 h-full overflow-y-auto'>  <img className='w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[0]} alt="qn" /> <img className='w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[1]} alt="qn" /> <img className='w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[2]} alt="qn" /> <img className='w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[3]} alt="qn" /> <img className='w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[4]} alt="qn" /></div>}
+        {specificQn === ("MID 1 2023") && <img className=' w-128 lg:w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[0]} alt="qn" />}
+        {specificQn === ("LAB INTERNAL") && <img className=' w-128 lg:w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[0]} alt="qn" />}
+        {specificQn === ("MID 2 2023") && <img className=' w-128 lg:w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[1]} alt="qn" />}
+        {specificQn === ("LAB EXTERNAL") && <img className=' w-128 lg:w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[1]} alt="qn" />}
+        {specificQn === "MID 2 P2 2023" && <div className=' w-128 lg:w-3/4 h-full overflow-y-auto'>  <img className=' w-128 lg:w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[1]} alt="qn" /> <img className=' w-128 lg:w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[3]} alt="qn" /> </div>}
+        {specificQn === "SEM 2023" && <img className=" w-128 lg:w-3/4 h-full border-2 border-slate-500" src={currentSubject.links[2]} alt="qn" />}
+        {specificQn === "SEM P2 2023" && <div className=' w-128 lg:w-3/4 h-full overflow-y-auto'>  <img className=' w-128 lg:w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[2]} alt="qn" /> <img className=' w-128 lg:w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[4]} alt="qn" /> </div>}
+        {specificQn === "SEM P5 2023" && <div className=' w-128 lg:w-3/4 h-full overflow-y-auto'>  <img className=' w-128 lg:w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[0]} alt="qn" /> <img className=' w-128 lg:w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[1]} alt="qn" /> <img className=' w-128 lg:w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[2]} alt="qn" /> <img className=' w-128 lg:w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[3]} alt="qn" /> <img className=' w-128 lg:w-3/4 h-full border-2 border-slate-500' src={currentSubject.links[4]} alt="qn" /></div>}
       </div>
     </div>
   );

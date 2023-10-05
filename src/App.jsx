@@ -1,7 +1,7 @@
 import './App.css'
 import React, { useEffect } from 'react'
 import { BrowserRouter,Route,Routes } from 'react-router-dom'
-import Header from './components/Header'
+import Header from './components/Header/Header'
 import Home from './components/Home/Home'
 import About from './components/About/About'
 import QuestionPaper from './components/QnpaperPages/QuestionPaper'
