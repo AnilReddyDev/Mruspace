@@ -13,9 +13,30 @@
     typing 2.5s steps(22) infinite alternate,
         cursor .4s step-end infinite alternate;
 }
+
 .textSD{
-    font-size: 1em;
-}
+    letter-spacing: 5px;
+    font-family: monospace;
+    border-right: 4px solid;
+    margin-bottom: 8px;
+    width: 100%;
+    overflow: hidden;
+    animation: 
+    typing 2s steps(10) forwards alternate,
+        cursor .4s step-end infinite alternate;
+    
+    }
+.textSDMS{
+    letter-spacing: 5px;
+    font-family: monospace;
+    border-right: 4px solid;
+    width: 100%;
+    overflow: hidden;
+    /* display: none; */
+    visibility: hidden;
+    animation: 
+    typing 2s steps(11) 2s forwards alternate,
+        cursor .4s step-end infinite forwards alternate;}
 
 @keyframes cursor {
     50% {
@@ -25,6 +46,9 @@
 
 @keyframes typing {
     from {
-        width: 0
+        width: 0;
+        visibility: visible;
+    }to{
+        visibility: visible;
     }
 }

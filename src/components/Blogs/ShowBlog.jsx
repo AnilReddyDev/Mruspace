@@ -8,11 +8,11 @@ export default function ShowBlog() {
         </div>
         <div className="heading-con w-128 ">
             {/* <div className=' w-5/6 '> */}
-            <h1 className='text-black dark:text-white pl-5 py-4 pr-5 lg:pr-40 text-3xl lg:text-6xl font-bold font-mono'>Getting Started with Figma: Unleash Your Design Creativity</h1>
+            <h1 className='text-black dark:text-white pl-5 py-4 pr-5 lg:pr-56 text-3xl lg:text-7xl font-bold font-mono'>Getting Started with Figma: Unleash Your Design Creativity</h1>
             {/* </div> */}
         </div>
         <div className="imagecon w-128">
-            <img className='px-3 lg:px-5 w-128 py-4' src="https://i.ytimg.com/vi/PaPIsyO1t3Q/maxresdefault.jpg" alt="figma image" />
+            <img className='px-3 lg:px-5 w-128 py-4 ' src="https://i.ytimg.com/vi/PaPIsyO1t3Q/maxresdefault.jpg" alt="figma image" />
         </div>
         <div className="content-con w-128 mt-5">
             <div className='w-128 bg-black dark:bg-white h-0.5'></div>

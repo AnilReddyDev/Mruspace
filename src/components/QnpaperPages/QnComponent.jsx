@@ -293,7 +293,6 @@ export default function QnComponent({ subName }) {
               backgroundColor: specificQn === e ? "#F16522" : "",
               color: specificQn === e ? "black dark:white" : "",
             }}
-            
           >
             {e}
           </button>

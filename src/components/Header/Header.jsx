@@ -1,7 +1,11 @@
 import React from 'react'
-import moonimg from '../assests/img/icons8-dark-mode-100.png'
+import moonimg from '../assests/img/icons8-moon-100.png'
 import sunimg from '../assests/img/icons8-light-mode-78.png'
 import mrulogo from '../assests/img/MRUSPACElogo.svg'
+import menuiconb from '../assests/img/icons8-menu-150.png'
+import menuiconw from '../assests/img/icons8-menu-150(1).png'
+import menuxb from '../assests/img/icons8-x-96-b.png'
+import menuxw from '../assests/img/icons8-x-96.png'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react';
 import SlideDownMenu from './SlideDownMenu'
@@ -40,9 +44,9 @@ export default function Header() {
                     <li className='cursor-pointer hidden lg:block text-base mx-4 font-medium' onClick={() => navigate("/Contribute")}>Contribute</li>
                 </ul>
                 <ul className='flex justify-between items-center text-black p-4 dark:text-white'>
-                    <li className='cursor-pointer hidden lg:block px-4'><button onClick={toggleTheme} className='flex justify-between items-center'>{theme === "dark" ? <img src={sunimg} className='w-6 h-6' alt="sun" /> : <img src={moonimg} className='w-4 h-4' alt="moon" />}</button></li>
+                    <li className='cursor-pointer  lg:block px-4'><button onClick={toggleTheme} className='flex justify-between items-center'>{theme === "dark" ? <img src={sunimg} className='w-6 h-6' alt="sun" /> : <img src={moonimg} className='w-5 h-5' alt="moon" />}</button></li>
                     <li className='cursor-pointer hidden lg:block text-base mx-4 font-medium' onClick={() => navigate("/about")}>About</li>
-                    <li className='cursor-pointer block lg:hidden text-xl mx-4 font-semibold' onClick={() => toggleMenu()}>Menu</li>
+                    <li className='cursor-pointer block lg:hidden text-xl mx-4 font-semibold' onClick={() => toggleMenu()}>{showMenu === false ? (theme === "light" ? (<img className='w-10' src={menuiconb}/>) : (<img className='w-10' src={menuiconw}/>)) : (theme === "light" ? <img className='w-11' src={menuxb}/> : <img className='w-11' src={menuxw}/> )}</li>
                 </ul>
             </header>
             {showMenu && <SlideDownMenu toggleMenu={toggleMenu}/>}

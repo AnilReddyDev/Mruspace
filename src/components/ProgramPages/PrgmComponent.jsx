@@ -1,12 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import PpContent from './PPContent';
+import rightarrowblack from "../assests/img/right-arrow-black.png"
+import rightarrowwhite from "../assests/img/right-arrow-white.png"
+import { useMediaQuery } from 'react-responsive';
 
 export default function PrgmComponent({ subName }) {
 
   // State to keep track of the currently selected subject and specific of paper selected(ex:mid1)
   const [subject, setSubject] = useState(subName);
   const [specificQn, setSpecificQn] = useState("sumofnum");
+  const [showLeftCon,setShowLeftcon] = useState(true);
+  const storedThemeColor = localStorage.getItem("theme");
+  const isMobile = useMediaQuery({ maxWidth: 768 });
 
+  const toggleLeftCon = () => {
+    setShowLeftcon(!showLeftCon);
+  }
+  
   const [pquery, setPquery] = useState("")
   const getFilteredPrgms = (pquery, items) => {
     if (!pquery) {
@@ -20,6 +30,7 @@ export default function PrgmComponent({ subName }) {
   // Update the subject state when the `subName` prop changes
   useEffect(() => {
     setSubject(subName);
+    // setShowLeftcon(true)
   }, [subName]);
 
   // Information about different question papers and their links
@@ -144,9 +155,11 @@ export default function PrgmComponent({ subName }) {
   //  const filteredPrgms = getFilteredPrgms(pquery,currentSubject.prgmList)
 
   return (
-    <div className='flex h-childBodyH overflow-auto bg-white text-black dark:bg-black dark:text-white'>
+    <div className='flex h-childBodyH w-screen overflow-auto bg-white text-black dark:bg-black dark:text-white'>
       {/* Left container to display question paper buttons */}
-      <div className="leftcon sticky top-5 w-leftcon h-3/4 py-3 overflow-y-auto flex flex-col justify-start text-black items-center bg-slate-200  box-border  dark:text-white dark:bg-mruListConbg">
+      
+      {
+      showLeftCon && <div className="leftcon sticky top-50 w-4/5 lg:w-leftcon h-3/4 py-3 overflow-y-auto flex flex-col justify-start text-black items-center bg-slate-200  box-border  dark:text-white dark:bg-mruListConbg">
         {/* <input type="text" name="prgmSerach" className='bg-mruLiteGray w-4/5 ' value={pquery} onChange={(e)=>setPquery(e.target.value.toLowerCase())}/> */}
         {/* Mapping through different question paper names */}
         {currentSubject &&
@@ -164,9 +177,16 @@ export default function PrgmComponent({ subName }) {
               {e.prgmBtnDisplayList}
             </button>
           ))}
-      </div>
+      </div>}
+      {
+        storedThemeColor === "light" ? <button className='relative bottom-72 ml-3  mt-10' onClick={() => toggleLeftCon()}><img src={rightarrowblack} alt=">" className='w-12' /></button> : <button className='relative bottom-72 ml-3 mt-10' onClick={()=>toggleLeftCon()}><img src={rightarrowwhite} alt=">" className='w-12' /></button>
+      }
       {/* Right container */}
-      <div className="rightcon w-rightcon bg-white box-border dark:bg-black">
+      <div className="rightcon w-5/6 lg:w-rightcon bg-white box-border dark:bg-black"
+       style={{
+          width: isMobile && (showLeftCon === false ? "87%" : "30%"),
+        }}
+      >
         {/* {specificQn === "MID 1 2023" && <img className='w-3/4 h-3/4' src={currentSubject.links[0]} alt="qn" />}
         {specificQn === "MID 2 2023" && <img className='w-3/4' src={currentSubject.links[1]} alt="qn" />}
         {specificQn === "SEM 2023" && <img className="w-2/4 h-3/4" src={currentSubject.links[2]} alt="qn" />} */}
