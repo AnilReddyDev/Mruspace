@@ -10,7 +10,39 @@
     width: 100%;
     overflow: hidden;
     animation: 
-    typing 2.5s steps(22) infinite alternate,
+    typing 2s steps(21) forwards alternate,
+        cursor .4s step-end infinite alternate;
+}
+.textLDPara {
+    /* letter-spacing: 5px; */
+    font-family: monospace;
+    border-right: 5px solid;
+    width: 100%;
+    overflow: hidden;
+    animation: 
+    typing 2.5s steps(53) forwards 2s alternate,
+        cursor .4s step-end infinite alternate;
+}
+.textSDPara1 {
+    /* letter-spacing: 5px; */
+    font-family: monospace;
+    border-right: 4px solid;
+    visibility: hidden;
+    width: 100%;
+    overflow: hidden;
+    animation: 
+    typing 2.5s steps(25) forwards 2s alternate,
+        cursor .4s step-end infinite alternate;
+}
+.textSDPara2 {
+    /* letter-spacing: 5px; */
+    font-family: monospace;
+    border-right: 4px solid;
+    visibility: hidden;
+    width: 100%;
+    overflow: hidden;
+    animation: 
+    typing 2.5s steps(28) forwards 2s alternate,
         cursor .4s step-end infinite alternate;
 }
 

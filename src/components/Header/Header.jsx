@@ -41,12 +41,13 @@ export default function Header() {
                     <li className='cursor-pointer hidden lg:block text-base mx-4 font-medium' onClick={() => navigate("/programs")}>Programs</li>
                     <li className='cursor-pointer hidden lg:block text-base mx-4 font-medium' onClick={() => navigate("/materials")}>Materials</li>
                     <li className='cursor-pointer hidden lg:block text-base mx-4 font-medium' onClick={() => navigate("/blogs")}>Blogs</li>
+                    <li className='cursor-pointer hidden lg:block text-base mx-4 font-medium' onClick={() => navigate("/upload")}>Upload</li>
                     <li className='cursor-pointer hidden lg:block text-base mx-4 font-medium' onClick={() => navigate("/Contribute")}>Contribute</li>
                 </ul>
                 <ul className='flex justify-between items-center text-black p-4 dark:text-white'>
                     <li className='cursor-pointer  lg:block px-4'><button onClick={toggleTheme} className='flex justify-between items-center'>{theme === "dark" ? <img src={sunimg} className='w-6 h-6' alt="sun" /> : <img src={moonimg} className='w-5 h-5' alt="moon" />}</button></li>
                     <li className='cursor-pointer hidden lg:block text-base mx-4 font-medium' onClick={() => navigate("/about")}>About</li>
-                    <li className='cursor-pointer block lg:hidden text-xl mx-4 font-semibold' onClick={() => toggleMenu()}>{showMenu === false ? (theme === "light" ? (<img className='w-10' src={menuiconb}/>) : (<img className='w-10' src={menuiconw}/>)) : (theme === "light" ? <img className='w-11' src={menuxb}/> : <img className='w-11' src={menuxw}/> )}</li>
+                    <li className='cursor-pointer block lg:hidden text-xl mx-4 font-semibold' onClick={() => toggleMenu()}>{showMenu === false ? (theme === "light" ? (<img className='w-7' src={menuiconb}/>) : (<img className='w-7' src={menuiconw}/>)) : (theme === "light" ? <img className='w-8' src={menuxb}/> : <img className='w-8' src={menuxw}/> )}</li>
                 </ul>
             </header>
             {showMenu && <SlideDownMenu toggleMenu={toggleMenu}/>}

@@ -39,9 +39,9 @@ export default function Materials() {
   return (
     <div>
       <main>
-        <div className='flex w-128 bg-white border-b-2 border-slate-200 dark:bg-black dark:border-stone-900'>
+        <div className='flex w-128 justify-between bg-white border-b-2 border-slate-200 dark:bg-black dark:border-stone-900'>
           {/* Subject buttons */}
-          <div className='w-auto h-childHeaderH flex  overflow-auto scrollbar-hide relative  m-2'>
+          <div className='w-auto h-childHeaderH flex lg:scrollbar-thin lg:scrollbar-thumb-gray-500 lg:scrollbar-track-gray-950  overflow-x-auto overflow-y-hidden relative  m-2'>
             {filteredSubjects.map((btn) => (
               <button
                 className='focus:bg-mruOrange whitespace-nowrap px-5 h-10 mx-3 text-black dark:text-white'
@@ -57,13 +57,13 @@ export default function Materials() {
             ))}
           </div>
           {/* Search input */}
-          <div className='w-auto pl-2 pr-10 m-2 flex'>
+          <div className=' w-auto pl-2 pr-1 lg:pr-10 m-2 flex'>
             <input
               type="text"
               name="qnsearch"
               value={query}
               onChange={(e) => setQuery(e.target.value.toLowerCase())}
-              className='w-10 focus:w-56 transition-all duration-700 ease-in-out h-10 box-border bg-slate-300 rounded-sm px-3 text-black outline-none placeholder:text-black dark:placeholder:text-white dark:bg-mruLiteGray'
+              className='w-10 dark:text-white focus:w-36  lg:focus:w-56 transition-all duration-700 ease-in-out h-10 box-border bg-slate-300 rounded-sm px-3 text-black outline-none placeholder:text-black dark:placeholder:text-white dark:bg-mruLiteGray'
               placeholder='🔍 search for subject..'
             />
           </div>

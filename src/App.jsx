@@ -10,6 +10,7 @@ import Materials from './components/MaterialPages/Materials'
 import Contribute from './components/Contributions/contribute'
 import Blogs from './components/Blogs/Blogs'
 import ShowBlog from './components/Blogs/ShowBlog'
+import Upload from './components/upload/Upload'
 function App() {
 
   return (
@@ -23,6 +24,7 @@ function App() {
     <Route path='/programs' element={<Programs/>}/>
     <Route path='/materials' element={<Materials/>}/>
     <Route path='/contribute' element={<Contribute/>}/>
+    <Route path='/upload' element={<Upload/>}/>
     <Route path='/blogs' element={<Blogs/>}/>
     <Route path='/blogs/figma' element={<ShowBlog/>}/>
 
