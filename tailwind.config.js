@@ -44,7 +44,10 @@ export default {
         "childHeaderH":"5vh",
         "bodyH":"90vh",
         "childBodyH":"85vh",
-      }
+      },
+      fontFamily: {
+        'poppins': ['Poppins', 'sans-serif']
+      },
     },
   },
   plugins: [

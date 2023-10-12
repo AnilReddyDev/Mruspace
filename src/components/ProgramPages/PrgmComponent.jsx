@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import PpContent from './PPContent';
-import rightarrowblack from "../assests/img/right-arrow-black.png"
-import rightarrowwhite from "../assests/img/right-arrow-white.png"
+import arrowblackopen from "../assests/img/arrow-b-open.png"
+import arrowblackclose from "../assests/img/arrow-b-close.png"
+import arrowwhiteopen from "../assests/img/arrow-w-open.png"
+import arrowwhiteclose from "../assests/img/arrow-w-close.png"
 import { useMediaQuery } from 'react-responsive';
 
 export default function PrgmComponent({ subName }) {
@@ -179,7 +181,7 @@ export default function PrgmComponent({ subName }) {
           ))}
       </div>}
       {
-        storedThemeColor === "light" ? <button className='relative bottom-72 ml-3  mt-10' onClick={() => toggleLeftCon()}><img src={rightarrowblack} alt=">" className='w-12' /></button> : <button className='relative bottom-72 ml-3 mt-10' onClick={()=>toggleLeftCon()}><img src={rightarrowwhite} alt=">" className='w-12' /></button>
+               storedThemeColor === "light" ? ( showLeftCon === true ? <button className='block p-2 pr-1 mt-40 h-24 bg-slate-200 rounded-r-lg' onClick={() => toggleLeftCon()}><img src={arrowblackclose} alt=">" className='w-8' /></button> : <button className='block p-2 pr-0 mt-40 h-24 bg-slate-200 rounded-r-lg' onClick={() => toggleLeftCon()}><img src={arrowblackopen} alt=">" className='w-8' /></button> ): ( showLeftCon === true ? <button className='block p-2 pr-1 mt-40 h-24 bg-mruListConbg rounded-r-lg' onClick={() => toggleLeftCon()}><img src={arrowwhiteclose} alt=">" className='w-8' /></button> : <button className='block p-2  pr-0  mt-40 h-24 bg-mruListConbg rounded-r-lg' onClick={() => toggleLeftCon()}><img src={arrowwhiteopen} alt=">" className='w-8' /></button> )
       }
       {/* Right container */}
       <div className="rightcon w-5/6 lg:w-rightcon bg-white box-border dark:bg-black"

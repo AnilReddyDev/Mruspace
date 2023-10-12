@@ -1,86 +1,80 @@
-* {
+*{
     margin: 0;
     padding: 0;
 }
-
-.textLD {
-    letter-spacing: 5px;
-    font-family: monospace;
-    border-right: 5px solid;
-    width: 100%;
-    overflow: hidden;
-    animation: 
-    typing 2s steps(21) forwards alternate,
-        cursor .4s step-end infinite alternate;
-}
-.textLDPara {
-    /* letter-spacing: 5px; */
-    font-family: monospace;
-    border-right: 5px solid;
-    width: 100%;
-    overflow: hidden;
-    animation: 
-    typing 2.5s steps(53) forwards 2s alternate,
-        cursor .4s step-end infinite alternate;
-}
-.textSDPara1 {
-    /* letter-spacing: 5px; */
-    font-family: monospace;
-    border-right: 4px solid;
+.div1{
     visibility: hidden;
-    width: 100%;
-    overflow: hidden;
-    animation: 
-    typing 2.5s steps(25) forwards 2s alternate,
-        cursor .4s step-end infinite alternate;
+    animation: widthIncrease 0.15s ease-in forwards;
 }
-.textSDPara2 {
-    /* letter-spacing: 5px; */
-    font-family: monospace;
-    border-right: 4px solid;
+.div2{
     visibility: hidden;
-    width: 100%;
-    overflow: hidden;
-    animation: 
-    typing 2.5s steps(28) forwards 2s alternate,
-        cursor .4s step-end infinite alternate;
+    animation: widthIncrease 0.15s ease-in 0.15s forwards ;
 }
-
-.textSD{
-    letter-spacing: 5px;
-    font-family: monospace;
-    border-right: 4px solid;
-    margin-bottom: 8px;
-    width: 100%;
-    overflow: hidden;
-    animation: 
-    typing 2s steps(10) forwards alternate,
-        cursor .4s step-end infinite alternate;
-    
-    }
-.textSDMS{
-    letter-spacing: 5px;
-    font-family: monospace;
-    border-right: 4px solid;
-    width: 100%;
-    overflow: hidden;
-    /* display: none; */
+.div3-1{
     visibility: hidden;
-    animation: 
-    typing 2s steps(11) 2s forwards alternate,
-        cursor .4s step-end infinite forwards alternate;}
-
-@keyframes cursor {
-    50% {
-        border-color: transparent;
-    }
+    animation: widthIncrease 0.15s ease-in 0.30s forwards ;
+}
+.div3-2{
+    visibility: hidden;
+    animation: widthIncrease 0.15s ease-in 0.45s forwards ;
+}
+.div3-3{
+    visibility: hidden;
+    animation: widthIncrease 0.15s ease-in 0.60s forwards ;
+}
+.div4-1{
+    visibility: hidden;
+    animation: widthIncrease 0.15s ease-in 0.75s forwards ;
+}
+.div4-2{
+    visibility: hidden;
+    animation: widthIncrease 0.15s ease-in 0.90s forwards ;
+}
+.div5-1{
+    visibility: hidden;
+    animation: widthIncrease 0.15s ease-in 1.05s forwards ;
+}
+.div5-2{
+    visibility: hidden;
+    animation: widthIncrease 0.15s ease-in 1.2s forwards ;
+}
+.div5-3{
+    visibility: hidden;
+    animation: widthIncrease 0.15s ease-in 1.35s forwards ;
+}
+.div6-1{
+    visibility: hidden;
+    animation: widthIncrease 0.15s ease-in 1.5s forwards ;
+}
+.div6-2{
+    visibility: hidden;
+    animation: widthIncrease 0.15s ease-in 1.65s forwards ;
+}
+.div6-3{
+    visibility: hidden;
+    animation: widthIncrease 0.15s ease-in 1.8s forwards ;
+}
+.div7-1{
+    visibility: hidden;
+    animation: widthIncrease 0.15s ease-in 1.95s forwards ;
+}
+.div7-2{
+    visibility: hidden;
+    animation: widthIncrease 0.15s ease-in 2.1s forwards ;
+}
+.alldiv:hover{
+    /* transform: translateX(2px); */
+    transition: all 0.15s ease;
 }
 
-@keyframes typing {
-    from {
+@keyframes widthIncrease {
+    from{
+        visibility: visible;
         width: 0;
-        visibility: visible;
-    }to{
-        visibility: visible;
     }
+    to{
+        visibility: visible;
+        width: 100;
+    }
+    
 }

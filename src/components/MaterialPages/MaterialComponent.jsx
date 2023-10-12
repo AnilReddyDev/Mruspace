@@ -16,6 +16,7 @@ import APunit3 from '../assests/materials/AP unit 3 Answers.66438bd6ff9ab7964892
 import APunit4 from '../assests/materials/AP unit 4 notes.301ce419b0277a471442.pdf'
 import APunit5 from '../assests/materials/AP unit 5 Answers.eb6a637e98858acca09a.pdf'
 import DAAsem from '../assests/materials/DAA_SEM_ANS.924557225d8a236e3f7b.pdf'
+import downloadb from '../assests/img/downloadb.png'
 
 export default function MaterialComponent({ subName }) {
   // State to keep track of the currently selected subject
@@ -36,7 +37,7 @@ export default function MaterialComponent({ subName }) {
     DAA: [{ "DAA Sem": DAAsem }],
     OOSE: [{ "OOSE Q&A": OOSEQ }],
     M1: [{ "M1 Q&A Notes": M1QA }],
-    AP: [{ "AP QN BANK": APQNBANK },{"AP unit3":APunit3},{"AP unit4":APunit4},{"AP unit5":APunit5}],
+    AP: [{ "AP QN BANK": APQNBANK }, { "AP unit3": APunit3 }, { "AP unit4": APunit4 }, { "AP unit5": APunit5 }],
   };
 
   const currentSubject = materialLinks[subject];
@@ -49,14 +50,26 @@ export default function MaterialComponent({ subName }) {
         const linkUrl = data[linkText]; // Get the link URL
 
         return (
-          <a
-            key={linkUrl}
-            href={linkUrl}
-            download
-            className='bg-mruOrange py-5 px-10 m-5'
-          >
-            {linkText}
-          </a>
+          <div className='flex m-5'>
+          <div className=' flex justify-center items-center w-36 h-12 text-xl font-medium rounded-md'>
+             <a
+                key={linkUrl}
+                href={linkUrl}
+                download
+              >
+                {linkText}
+              </a>
+          </div>
+          <div className='bg-mruOrange flex justify-center items-center px-3 rounded-md  h-12'>
+            <a
+                key={linkUrl}
+                href={linkUrl}
+                download
+              >
+            <img src={downloadb} alt="" className='w-5' />
+              </a>
+          </div>
+          </div>
         );
       })}
     </div>

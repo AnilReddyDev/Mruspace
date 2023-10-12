@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import rightarrowblack from "../assests/img/right-arrow-black.png"
-import rightarrowwhite from "../assests/img/right-arrow-white.png"
+import arrowblackopen from "../assests/img/arrow-b-open.png"
+import arrowblackclose from "../assests/img/arrow-b-close.png"
+import arrowwhiteopen from "../assests/img/arrow-w-open.png"
+import arrowwhiteclose from "../assests/img/arrow-w-close.png"
 export default function QnComponent({ subName }) {
 
   // State to keep track of the currently selected subject and specific of paper selected(ex:mid1)
   const [subject, setSubject] = useState(subName);
   const [specificQn, setSpecificQn] = useState("");
-  const [showLeftCon,setShowLeftcon] = useState(true);
+  const [showLeftCon, setShowLeftcon] = useState(true);
   const storedThemeColor = localStorage.getItem("theme");
 
   const toggleLeftCon = () => {
@@ -15,8 +17,7 @@ export default function QnComponent({ subName }) {
   // Update the subject state when the `subName` prop changes
   useEffect(() => {
     setSubject(subName);
-    setShowLeftcon("true");
-  }, [subName]);
+  }, [subName, storedThemeColor]);
 
   // Information about different question papers and their links
   const qnBtninfo = {
@@ -230,7 +231,7 @@ export default function QnComponent({ subName }) {
       ]
     },
     HVPE: {
-      diffpapers: ["MID 1 2023","SEM 2023"],
+      diffpapers: ["MID 1 2023", "SEM 2023"],
       links: [
         "https://github.com/CatsOnTree/MruImgs/blob/main/QnImgs/HVPE-MID1-P1.jpg?raw=true",
         "pass-mid2",
@@ -281,26 +282,27 @@ export default function QnComponent({ subName }) {
   return (
     <div className='flex items-start h-childBodyH box-border bg-white text-black dark:bg-black dark:text-white'>
       {/* Left container to display question paper buttons */}
-     {
-      showLeftCon &&  <div className="leftcon w-4/5 lg:block lg:w-leftcon h-3/4 py-3 flex flex-col justify-start text-black items-center bg-slate-100  box-border  dark:text-white dark:bg-mruListConbg">
-      {/* Mapping through different question paper names */}
-      {currentSubject &&
-        currentSubject.diffpapers.map((e) => (
-          <button key={e}
-            className='focus:bg-mruOrange flex  py-2 px-6 w-128 text-base'
-            onClick={() => {setSpecificQn(e); toggleLeftCon()}}
-            style={{
-              backgroundColor: specificQn === e ? "#F16522" : "",
-              color: specificQn === e ? "black dark:white" : "",
-            }}
-          >
-            {e}
-          </button>
-        ))}
-    </div>
-     }
       {
-        storedThemeColor === "light" ? <button className='block ml-3  mt-10' onClick={() => toggleLeftCon()}><img src={rightarrowblack} alt=">" className='w-10' /></button> : <button className='block ml-3 mt-10' onClick={()=>toggleLeftCon()}><img src={rightarrowwhite} alt=">" className='w-10' /></button>
+        showLeftCon && <div className="leftcon w-4/5 lg:block lg:w-leftcon h-3/4 py-3 flex flex-col justify-start text-black items-center bg-slate-100  box-border  dark:text-white dark:bg-mruListConbg">
+          {/* Mapping through different question paper names */}
+          {currentSubject &&
+            currentSubject.diffpapers.map((e) => (
+              <button key={e}
+                className='focus:bg-mruOrange flex  py-2 px-6 w-128 text-base'
+                onClick={() => { setSpecificQn(e); toggleLeftCon() }}
+                style={{
+                  backgroundColor: specificQn === e ? "#F16522" : "",
+                  color: specificQn === e ? "black dark:white" : "",
+                }}
+              >
+                {e}
+              </button>
+            ))}
+        </div>
+      }
+      {
+               storedThemeColor === "light" ? ( showLeftCon === true ? <button className='block p-2 pr-1 mt-40 h-24 bg-slate-200 rounded-r-lg' onClick={() => toggleLeftCon()}><img src={arrowblackclose} alt=">" className='w-8' /></button> : <button className='block p-2 pr-0 mt-40 h-24 bg-slate-200 rounded-r-lg' onClick={() => toggleLeftCon()}><img src={arrowblackopen} alt=">" className='w-8' /></button> ): ( showLeftCon === true ? <button className='block p-2 pr-1 mt-40 h-24 bg-mruListConbg rounded-r-lg' onClick={() => toggleLeftCon()}><img src={arrowwhiteclose} alt=">" className='w-8' /></button> : <button className='block p-2  pr-0  mt-40 h-24 bg-mruListConbg rounded-r-lg' onClick={() => toggleLeftCon()}><img src={arrowwhiteopen} alt=">" className='w-8' /></button> )
+
       }
       {/* Right container */}
       <div className="rightcon w-rightcon h-5/6 flex justify-center items-center bg-white box-border dark:bg-black">
