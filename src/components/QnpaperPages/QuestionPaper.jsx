@@ -57,7 +57,7 @@ export default function QuestionPaper() {
       <main>
         <div className='flex justify-between w-128 bg-white border-b-2 border-slate-200 dark:bg-black dark:border-stone-900'>
           {/* Subject buttons */}
-          <div className='w-auto h-childHeaderH auto box-border lg:scrollbar-thin lg:scrollbar-thumb-gray-500 lg:scrollbar-track-gray-950  flex overflow-y-hidden overflow-x-auto  relative  m-2'>
+          <div className='w-auto h-childHeaderH auto box-border lg:scrollbar-thin lg:scrollbar-thumb-slate-300 lg:scrollbar-track-white dark:lg:scrollbar-thumb-gray-500 dark:lg:scrollbar-track-gray-950  flex overflow-y-hidden overflow-x-auto  relative  m-2'>
             {filteredSubjects.map((btn) => (
               <button
                 className='focus:bg-mruOrange px-5 h-10 mx-3 text-black dark:text-white'

@@ -37,7 +37,7 @@ export default function Programs() {
       <main>
         <div className='flex justify-between w-128 bg-white border-b-2 border-slate-200 dark:bg-black dark:border-stone-900'>
           {/* Subject buttons */}
-          <div className='w-auto  h-10 box-border flex lg:scrollbar-thin lg:scrollbar-thumb-gray-500 lg:scrollbar-track-gray-950 overflow-x-auto overflow-y-hidden relative  m-2'>
+          <div className='w-auto  h-10 box-border flex lg:scrollbar-thin lg:scrollbar-thumb-slate-300 lg:scrollbar-track-white dark:lg:scrollbar-thumb-gray-500 dark:lg:scrollbar-track-gray-950 overflow-x-auto overflow-y-hidden relative  m-2'>
             {filteredSubjects.map((btn) => (
               <button
                 className=' px-4 h-10 mx-2 text-black dark:text-white'

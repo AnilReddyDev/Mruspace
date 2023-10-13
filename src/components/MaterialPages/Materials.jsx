@@ -41,7 +41,7 @@ export default function Materials() {
       <main>
         <div className='flex w-128 justify-between bg-white border-b-2 border-slate-200 dark:bg-black dark:border-stone-900'>
           {/* Subject buttons */}
-          <div className='w-auto h-childHeaderH flex lg:scrollbar-thin lg:scrollbar-thumb-gray-500 lg:scrollbar-track-gray-950  overflow-x-auto overflow-y-hidden relative  m-2'>
+          <div className='w-auto h-childHeaderH flex lg:scrollbar-thin lg:scrollbar-thumb-slate-300 lg:scrollbar-track-white dark:lg:scrollbar-thumb-gray-500 dark:lg:scrollbar-track-gray-950  overflow-x-auto overflow-y-hidden relative  m-2'>
             {filteredSubjects.map((btn) => (
               <button
                 className='focus:bg-mruOrange whitespace-nowrap px-5 h-10 mx-3 text-black dark:text-white'

@@ -11,7 +11,13 @@ import Contribute from './components/Contributions/contribute'
 import Blogs from './components/Blogs/Blogs'
 import ShowBlog from './components/Blogs/ShowBlog'
 import Upload from './components/upload/Upload'
+import ReactGA from "react-ga";
+
 function App() {
+
+    useEffect(() => {
+      ReactGA.initialize("G-1WYDY1P9QF");
+    }, []);
 
   return (
     <>
