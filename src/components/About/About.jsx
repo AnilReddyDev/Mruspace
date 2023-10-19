@@ -8,6 +8,7 @@ export default function About() {
       linkedIn:"https://linkedin.com/in/anil-reddy-513866227",
       instagram:"https://instagram.com/i_am_anilreddy",
       x:"https://twitter.com/i_am_anilreddy",
+      github:"https://github.com/anilreddydev/",
     },
     Akash:{
       heading:"AkashKalwa.Designer",
@@ -15,13 +16,15 @@ export default function About() {
       linkedIn:"https://www.linkedin.com/in/akash-kalwa-801780243",
       instagram:"https://www.instagram.com/inst_a_kash",
       x:"https://twitter.com/akash_kalwa",
+      github:"",
     },
     Aravind:{
       heading:"Aravind.ManualTester",
       paragraph:"Hi Guys! I am a dedicated manual tester with a sharp focus on quality assurance, I meticulously analyze and test software to ensure flawless functionality and enhance user satisfaction.",
-      linkedIn:"https://linkedin.com/in/anil-reddy-513866227",
+      linkedIn:"",
       instagram:"https://instagram.com/aravind_sagar____",
-      x:"https://twitter.com/i_am_anilreddy",
+      x:"",
+      github:"",
     },
   }
   return (

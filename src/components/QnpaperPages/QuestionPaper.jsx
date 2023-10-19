@@ -79,7 +79,7 @@ export default function QuestionPaper() {
               name="qnsearch"
               value={query}
               onChange={(e) => setQuery(e.target.value.toLowerCase())}
-              className=' w-10 focus:w-36  lg:focus:w-56 transition-all duration-700 ease-in-out h-10 box-border bg-slate-300 rounded-sm px-3 text-black outline-none placeholder:text-black dark:placeholder:text-white dark:bg-mruLiteGray'
+              className=' w-10 focus:w-36  lg:focus:w-56 transition-all duration-700 ease-in-out h-10 box-border bg-slate-300 rounded-sm px-3 text-black outline-none placeholder:text-black dark:placeholder:text-white dark:text-white dark:bg-mruLiteGray'
               placeholder='🔍 search for subject..'            
               />
           </div>

@@ -4,7 +4,7 @@ export default function ShowBlog() {
   return (
     <div className=' w-128  flex flex-col justify-start items-center bg-white dark:bg-black'>
         <div className="datecontainer w-128">
-            <p className='text-black dark:text-white py-5 pl-5 font-mono'>September 2, 2023</p>
+            <p className='text-black dark:text-white py-5 pl-5 font-mono'>October 13, 2023</p>
         </div>
         <div className="heading-con w-128 ">
             {/* <div className=' w-5/6 '> */}
