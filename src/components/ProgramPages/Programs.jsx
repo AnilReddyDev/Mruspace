@@ -15,6 +15,7 @@ export default function Programs() {
   {key:3,subject:"Web_Development"},
   {key:4,subject:"Java_Programming"},
   {key:5,subject:"AI_Programming"},
+  {key:6,subject:"Data_Mining"},
     // ... other subjects
   ];
 

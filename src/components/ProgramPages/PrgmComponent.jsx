@@ -148,7 +148,19 @@ export default function PrgmComponent({ subName }) {
           { prgmBtnDisplayList: "Minimun step last index", specificQnList: "aiminstpelastindex" },
           { prgmBtnDisplayList: "Metropolis acceptance in S", specificQnList: "aiSAmetroplis" },
           { prgmBtnDisplayList: "8 puzzle min jumps", specificQnList: "aiminjumps8puzzle" },
-        ]}
+        ]},
+        Data_Mining:{
+          prgmList:[
+            {prgmBtnDisplayList:"Factorial",specificQnList:"factorialnum"},
+            {prgmBtnDisplayList:"Sum Of Array",specificQnList:"sumofarray"},
+            {prgmBtnDisplayList:"Reverse A Number",specificQnList:"reverseanumber"},
+            {prgmBtnDisplayList:"Transpose of Matrix",specificQnList:"transposeofmatrix"},
+            {prgmBtnDisplayList:"Fibonacci sequence",specificQnList:"Fibonaccisequence"},
+            {prgmBtnDisplayList:"Armstrong number",specificQnList:"Armstrongnumber"},
+            {prgmBtnDisplayList:"Graphical representation",specificQnList:"Graphicalrepresentation"},
+            {prgmBtnDisplayList:"Decision Tree",specificQnList:"decisiontree"},
+          ]
+        }
     // Add more subjects and their corresponding question paper information
   };
 

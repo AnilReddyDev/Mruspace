@@ -3648,6 +3648,196 @@ print("Minimum jumps to home:", min_jumps)`,
     }
     }
 
+//web development content object 
+const DmContentObj={
+    factorialnum:{
+        code:`num <- as.numeric(readline("Enter a number: "))
+
+if (is.na(num)) {
+    cat("You did not enter a valid number. Please enter a numeric value.")
+} else {
+    factorial <- 1
+    for (x in 1:num) {
+    factorial <- factorial * x
+    }
+    cat(sprintf("Factorial of %d: %d", num, factorial))
+}
+        
+`,
+output:`Factorial of 5: 120`,
+heading:`Write a R program for find the factorial of a given number`
+    },
+    sumofarray:{
+        code:`#sum of array elements
+sum <-0
+array <- c(1,2,3,4,5)
+for (x in array){
+    sum=sum+x
+}
+sprintf("Sum of the array : %d",sum)       
+`,
+output:`Sum of the array : 15`,
+heading:`Write a R program to find the sum of given numbers in a array`
+    },
+    reverseanumber:{
+        code:`reverse_number <- function(num) {
+    num_str <- as.character(num)   # Convert the number to a character (string)
+    reversed_str <- paste0(rev(strsplit(num_str, "")[[1]]), collapse = "") # Reverse the characters
+    reversed_num <- as.numeric(reversed_str) # Convert it back to numeric
+    return(reversed_num)
+}
+
+# Input a number
+num <- as.numeric(readline("Enter a number: "))
+
+# Check if the input is a valid number
+if (!is.na(num)) {
+    reversed_num <- reverse_number(num)
+    cat(sprintf("Reverse of %d is: %d", num, reversed_num))
+} else {
+    cat("Invalid input. Please enter a numeric value.")
+}   
+`,
+output:`Reverse of 25631 is: 13652`,
+heading:`Write a R program to find the sum of given numbers in a array`
+    },
+    transposeofmatrix:{
+        code:`# Create a sample matrix
+matrix_data <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 2)
+
+# Find the transpose of the matrix
+transposed_matrix <- t(matrix_data)
+
+# Print the original and transposed matrices
+cat("Original Matrix:")
+print(matrix_data)
+
+cat("Transposed Matrix:")
+print(transposed_matrix)`,
+output:`Original Matrix:
+[,1] [,2] [,3]
+[1,]    1    3    5
+[2,]    2    4    6
+
+Transposed Matrix:
+[,1] [,2]
+[1,]    1    2
+[2,]    3    4
+[3,]    5    6`,
+heading:`Write a R program to find the transpos,e of a  given matrix`
+    },
+    Fibonaccisequence:{
+        code:`# Function to generate the nth Fibonacci number
+fibonacci <- function(n) {
+    if (n <= 0) {
+    return(0)
+    } else if (n == 1) {
+    return(1)
+    } else {
+    return(fibonacci(n - 1) + fibonacci(n - 2))
+    }
+}
+
+# Function to display Fibonacci numbers up to a given range
+fibonacci_range <- function(range) {
+    n <- 0
+    while (fibonacci(n) <= range) {
+    cat(fibonacci(n), " ")
+    n <- n + 1
+    }
+    cat("")
+}
+
+# Input the range
+range <- as.integer(readline("Enter the range for Fibonacci numbers: "))
+
+# Call the function to display the Fibonacci numbers
+cat("Fibonacci numbers up to", range, "are: ")
+fibonacci_range(range)
+`,
+        output:`Fibonacci numbers up to 10 are: 0  1  1  2  3  5  8`,
+        heading:`Write a R program to display the Fibonacci numbers up to given range`
+
+    },
+    Armstrongnumber:{
+        code:`# Function to check if a number is an Armstrong number
+is_armstrong_number <- function(num) {
+    num_str <- as.character(num)
+    num_digits <- nchar(num_str)
+    sum_of_powers <- sum(as.numeric(strsplit(num_str, '')[[1]])^num_digits)
+    return(num == sum_of_powers)
+}
+
+# Input the number
+num <- as.integer(readline("Enter a number: "))
+
+# Check if the number is an Armstrong number
+if (is_armstrong_number(num)) {
+    cat(num, "is an Armstrong number.")
+} else {
+    cat(num, "is not an Armstrong number.")
+}
+        `,
+        output:`153 is an Armstrong number.`,
+        heading:`Write a R program to find the given number is Armstrong number or not`
+
+    },
+    Graphicalrepresentation:{
+        code:`# Load the iris dataset
+data(iris)
+
+# Scatter plot
+plot(iris$Sepal.Length, iris$Sepal.Width, 
+        main = "Scatter plot of Sepal Length vs Sepal Width", 
+        xlab = "Sepal Length", ylab = "Sepal Width", pch = 19, col = iris$Species)
+
+# Histogram
+hist(iris$Petal.Length, 
+        main = "Histogram of Petal Length", 
+        xlab = "Petal Length", col = "lightblue")
+
+# Box plot
+boxplot(iris$Petal.Width ~ iris$Species, 
+        main = "Box plot of Petal Width by Species", 
+        xlab = "Species", ylab = "Petal Width")
+
+# Bar plot
+barplot(table(iris$Species), 
+        main = "Bar plot of Species Counts", 
+        xlab = "Species", ylab = "Count", col = "skyblue")
+
+# Line plot
+plot(1:10, type = "n", main = "Line Plot", xlab = "X", ylab = "Y")
+lines(1:10, col = "blue", lwd = 2)
+
+# Pie chart
+slices <- c(10, 20, 30)
+labels <- c("Group A", "Group B", "Group C")
+pie(slices, labels, col = rainbow(length(slices)))`,
+        output:`Plots will be displayed`,
+        heading:`Write a R program to impl different Graphical representations of data in R`
+    },
+    decisiontree:{
+        code:`# Sample dataset
+data <- data.frame(
+    Color = c("Red", "Orange", "Red", "Orange", "Red", "Green", "Green", "Orange"),
+    Shape = c("Round", "Round", "Oval", "Oval", "Round", "Round", "Oval", "Round"),
+    Class = c("Apple", "Orange", "Apple", "Orange", "Apple", "Apple", "Orange", "Orange")
+)
+
+# Creating a decision tree model
+library(rpart)
+model <- rpart(Class ~ Color + Shape, data = data, method = "class")
+
+# Plot the decision tree
+library(rpart.plot)
+rpart.plot(model, box.palette = "GnBu", type = 4, fallen.leaves = TRUE)`,
+        output:`Output may be similar to this :(Apple 50%/100%)`,
+        heading:`Simple Decision Tree Classification Example in R: Classifying Fruit`
+    }
+
+}
+
 let selectedContent;
 
 switch (subName) {
@@ -3665,6 +3855,9 @@ switch (subName) {
     break;
   case "AI_Programming":
     selectedContent = AiContentObj[specificQn];
+    break;
+  case "Data_Mining":
+    selectedContent = DmContentObj[specificQn];
     break;
   default:
     selectedContent = null;
