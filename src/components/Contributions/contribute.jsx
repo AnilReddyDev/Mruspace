@@ -16,6 +16,7 @@ export default function contribute() {
         <p className='text-black hover:underline dark:text-white text-xl mb-2 mx-4 hover:text-mruOrange font-medium'>Anil Varma</p>
         <p className='text-black hover:underline dark:text-white text-xl mb-2 mx-4 hover:text-mruOrange font-medium'>Hanisha Reddy</p>
         <p className='text-black hover:underline dark:text-white text-xl mb-2 mx-4 hover:text-mruOrange font-medium'>Arun kumar</p>
+        <p className='text-black hover:underline dark:text-white text-xl mb-2 mx-4 hover:text-mruOrange font-medium'>Yashwanth Raj</p>
        </div>
     </div>
   )

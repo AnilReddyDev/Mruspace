@@ -16,6 +16,11 @@ import APunit3 from '../assests/materials/AP unit 3 Answers.66438bd6ff9ab7964892
 import APunit4 from '../assests/materials/AP unit 4 notes.301ce419b0277a471442.pdf'
 import APunit5 from '../assests/materials/AP unit 5 Answers.eb6a637e98858acca09a.pdf'
 import DAAsem from '../assests/materials/DAA_SEM_ANS.924557225d8a236e3f7b.pdf'
+import WDDans from '../assests/materials/wdd ans.pdf'
+import FAMQA from '../assests/materials/FAM MID Q AND A.pdf'
+import EVSQA from '../assests/materials/EVS MID-1 Q AND A..pdf'
+import IOTans from '../assests/materials/IOT SEM ANSWERS.pdf'
+import CNans from '../assests/materials/CN question AND ans.pdf'
 import downloadb from '../assests/img/downloadb.png'
 
 export default function MaterialComponent({ subName }) {
@@ -36,7 +41,12 @@ export default function MaterialComponent({ subName }) {
     DV: [{ "DV Q&A": DvQA }],
     DAA: [{ "DAA Sem": DAAsem }],
     OOSE: [{ "OOSE Q&A": OOSEQ }],
+    WDD: [{ "WDD Q&A": WDDans }],
+    IOT: [{ "IOT Q&A": IOTans }],
+    CN: [{ "CN MID 1 Q&A": CNans }],
     M1: [{ "M1 Q&A Notes": M1QA }],
+    EVS: [{ "EVS MID-1 Q&A": EVSQA }],
+    FAM: [{ "FAM MID-2 Q&A": FAMQA }],
     AP: [{ "AP QN BANK": APQNBANK }, { "AP unit3": APunit3 }, { "AP unit4": APunit4 }, { "AP unit5": APunit5 }],
   };
 
@@ -50,8 +60,8 @@ export default function MaterialComponent({ subName }) {
         const linkUrl = data[linkText]; // Get the link URL
 
         return (
-          <div className='flex m-5'>
-          <div className=' flex justify-center items-center w-36 h-12 text-xl font-medium rounded-md'>
+          <div className='flex m-5' key={linkText}>
+          <div className=' flex justify-center items-center w-48 h-12 text-xl font-medium rounded-md'>
              <a
                 key={linkUrl}
                 href={linkUrl}

@@ -3668,37 +3668,30 @@ output:`Factorial of 5: 120`,
 heading:`Write a R program for find the factorial of a given number`
     },
     sumofarray:{
-        code:`#sum of array elements
-sum <-0
-array <- c(1,2,3,4,5)
-for (x in array){
-    sum=sum+x
-}
-sprintf("Sum of the array : %d",sum)       
+code:`# Create an array of numbers
+numbers <- c(1, 2, 3, 4, 5)
+
+# Use the sum function to calculate the sum
+sum_of_numbers <- sum(numbers)
+
+# Print the sum
+cat("Sum of the array :",sum_of_numbers)    
 `,
 output:`Sum of the array : 15`,
 heading:`Write a R program to find the sum of given numbers in a array`
     },
     reverseanumber:{
-        code:`reverse_number <- function(num) {
-    num_str <- as.character(num)   # Convert the number to a character (string)
-    reversed_str <- paste0(rev(strsplit(num_str, "")[[1]]), collapse = "") # Reverse the characters
-    reversed_num <- as.numeric(reversed_str) # Convert it back to numeric
-    return(reversed_num)
+        code:`num <- as.numeric(readline("Enter a number: "))
+rev=0
+while(num>0)
+{
+    r=num %% 10
+    rev=rev*10+r
+    num=num %/% 10
 }
-
-# Input a number
-num <- as.numeric(readline("Enter a number: "))
-
-# Check if the input is a valid number
-if (!is.na(num)) {
-    reversed_num <- reverse_number(num)
-    cat(sprintf("Reverse of %d is: %d", num, reversed_num))
-} else {
-    cat("Invalid input. Please enter a numeric value.")
-}   
+print(paste("Reverse number is:",rev))   
 `,
-output:`Reverse of 25631 is: 13652`,
+output:`Reverse number is: 321`,
 heading:`Write a R program to find the sum of given numbers in a array`
     },
     transposeofmatrix:{
@@ -3727,35 +3720,25 @@ Transposed Matrix:
 heading:`Write a R program to find the transpos,e of a  given matrix`
     },
     Fibonaccisequence:{
-        code:`# Function to generate the nth Fibonacci number
-fibonacci <- function(n) {
-    if (n <= 0) {
-    return(0)
-    } else if (n == 1) {
-    return(1)
-    } else {
-    return(fibonacci(n - 1) + fibonacci(n - 2))
-    }
+        code:`# Function to print the Fibonacci sequence using a loop
+print_fibonacci <- function(n) {
+a <- 0
+b <- 1
+
+cat("Fibonacci Sequence:")
+for (i in 1:n) {
+    cat(a, " ")
+    next_num <- a + b
+    a <- b
+    b <- next_num
+}
 }
 
-# Function to display Fibonacci numbers up to a given range
-fibonacci_range <- function(range) {
-    n <- 0
-    while (fibonacci(n) <= range) {
-    cat(fibonacci(n), " ")
-    n <- n + 1
-    }
-    cat("")
-}
-
-# Input the range
-range <- as.integer(readline("Enter the range for Fibonacci numbers: "))
-
-# Call the function to display the Fibonacci numbers
-cat("Fibonacci numbers up to", range, "are: ")
-fibonacci_range(range)
+# Example usage
+number_of_terms <- 10
+print_fibonacci(number_of_terms)
 `,
-        output:`Fibonacci numbers up to 10 are: 0  1  1  2  3  5  8`,
+        output:`Fibonacci Sequence:0  1  1  2  3  5  8  13  21  34`,
         heading:`Write a R program to display the Fibonacci numbers up to given range`
 
     },
@@ -3783,7 +3766,8 @@ if (is_armstrong_number(num)) {
 
     },
     Graphicalrepresentation:{
-        code:`# Load the iris dataset
+        code:`#select any of plots you wish and practice
+# Load the iris dataset
 data(iris)
 
 # Scatter plot
@@ -3818,7 +3802,9 @@ pie(slices, labels, col = rainbow(length(slices)))`,
         heading:`Write a R program to impl different Graphical representations of data in R`
     },
     decisiontree:{
-        code:`# Sample dataset
+        code:`# Install and load the rpart package if not already installed
+# install.packages("rpart")
+# Sample dataset
 data <- data.frame(
     Color = c("Red", "Orange", "Red", "Orange", "Red", "Green", "Green", "Orange"),
     Shape = c("Round", "Round", "Oval", "Oval", "Round", "Round", "Oval", "Round"),
@@ -3834,6 +3820,463 @@ library(rpart.plot)
 rpart.plot(model, box.palette = "GnBu", type = 4, fallen.leaves = TRUE)`,
         output:`Output may be similar to this :(Apple 50%/100%)`,
         heading:`Simple Decision Tree Classification Example in R: Classifying Fruit`
+    },
+    week5_1:{
+code:`install.packages("mlbench")
+install.packages("e1071")
+library(mlbench)
+library(e1071)
+data(PimaIndiansDiabetes)
+set.seed(123)
+train_indices<-sample(1:nrow(PimaIndiansDiabetes),0.7*nrow(PimaIndiansDiabetes))
+train_data<-PimaIndiansDiabetes[train_indices,]
+test_data<-PimaIndiansDiabetes[-train_indices,]
+bayesian_model<-naiveBayes(diabetes~.,data = train_data)
+predictions<-predict(bayesian_model,test_data)
+accuracy<-mean(predictions == test_data$diabetes)
+print(paste("Accuracy:", round(accuracy * 100, 2), "%"))`,
+        output:``,
+        heading:`use the "Pima Indians Diabetes" dataset, which contains information
+        about female patients of Pima Indian heritage. The goal is to predict whether a patient
+        has, diabetes or not based on various features like glucose level, blood pressure, BMI, etc.`
+    },
+week6:{
+code:`data(iris)
+
+str(iris)
+
+install.packages("ClusterR")
+install.packages("cluster")
+
+library(ClusterR)
+library(cluster)
+
+iris_1 <- iris[, -5]
+
+set.seed(240) 
+kmeans.re <- kmeans(iris_1, centers = 3, nstart = 20)
+kmeans.re
+
+kmeans.re$cluster
+
+cm <- table(iris$Species, kmeans.re$cluster)
+cm
+
+plot(iris_1[c("Sepal.Length", "Sepal.Width")])
+plot(iris_1[c("Sepal.Length", "Sepal.Width")],
+        col = kmeans.re$cluster)
+plot(iris_1[c("Sepal.Length", "Sepal.Width")],
+        col = kmeans.re$cluster,
+        main = "K-means with 3 clusters")
+
+kmeans.re$centers
+kmeans.re$centers[, c("Sepal.Length", "Sepal.Width")]
+
+points(kmeans.re$centers[, c("Sepal.Length", "Sepal.Width")],
+        col = 1:3, pch = 8, cex = 3)
+
+y_kmeans <- kmeans.re$cluster
+clusplot(iris_1[, c("Sepal.Length", "Sepal.Width")],
+            y_kmeans,
+            lines = 0,
+            shade = TRUE,
+            color = TRUE,
+            labels = 2,
+            plotchar = FALSE,
+            span = TRUE,
+            main = paste("Cluster iris"),
+            xlab = 'Sepal.Length',
+            ylab = 'Sepal.Width')`,
+        output:``,
+        heading:`Perform K-Means Clustering on IRIS Dataset &bsol;n`
+    },
+    week6_1:{
+code:`# Load required packages
+library(datasets)
+library(ggplot2)
+
+# Load the USArrests dataset
+data("USArrests")
+
+# Perform k-means clustering
+set.seed(123)  # For reproducibility
+num_clusters <- 3  # Number of clusters
+kmeans_result <- kmeans(USArrests, centers = num_clusters)
+
+# Add cluster assignments to the original data
+USArrests_clustered <- data.frame(USArrests, Cluster = as.factor(kmeans_result$cluster))
+
+# Visualize the clusters
+ggplot(USArrests_clustered, aes(UrbanPop, Murder, color = Cluster)) +
+    geom_point() +
+    labs(title = "K-Means Clustering of USArrests Dataset",
+        x = "Urban Population", y = "Murder Rate")
+
+
+
+#multiplication of matrices
+matrix_multiply <- function(mat1, mat2) {
+    if (ncol(mat1) != nrow(mat2)) {
+    stop("Number of columns in Matrix 1 must be equal to the number of rows in Matrix 2 for multiplication.")
+    }
+    
+    result <- mat1 %*% mat2
+    return(result)
+}
+
+matrix1 <- matrix(c(1, 2, 3, 4), nrow = 2, ncol = 2)
+matrix2 <- matrix(c(5, 6, 7, 8), nrow = 2, ncol = 2)
+
+result_matrix <- matrix_multiply(matrix1, matrix2)
+
+cat("Matrix 1:")
+print(matrix1)
+
+cat("Matrix 2:")
+print(matrix2)
+
+cat("Result Matrix:")
+print(result_matrix)
+`,
+        output:``,
+        heading:`Can we identify distinct patterns or groupings of states based on their urban
+        population and
+        murder rate using k-means clustering on the "USArrests" dataset?`
+    },
+    week7:{
+code:`# Install and load necessary packages
+install.packages(c("sf", "raster", "ggplot2", "spatstat", "plotrix", "fields", 
+                    "leaflet", "RColorBrewer", "lattice", "geoR", 
+                    "spdep", "ape", "pgirmess", "splancs", "smacpod", "car", "sp"))
+
+# Load necessary libraries
+library(sf)
+library(raster)
+library(ggplot2)
+library(spatstat)
+library(plotrix)
+library(fields)
+library(leaflet)
+library(RColorBrewer)
+library(lattice)
+library(geoR)
+library(car)
+library(sp)
+library(spdep)
+library(ape)
+library(pgirmess)
+
+# Open BF malaria data
+BF_malaria_data <- read.csv("https://raw.githubusercontent.com/HughSt/HughSt.github.io/master/course_materials/week4/Lab_files/BF_malaria_data.csv", header = TRUE)
+
+# Load administrative boundaries for Burkina Faso (level 1)
+BF_Adm_1 <- raster::getData("GADM", country = "BFA", level = 1)
+proj4string(BF_Adm_1) <- CRS('+proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0 ')
+
+# Calculate prevalence
+BF_malaria_data$prevalence <- BF_malaria_data$positives / BF_malaria_data$examined
+
+# Create a leaflet map to visualize spatial points
+pal <- colorNumeric("Oranges", BF_malaria_data$prevalence)
+leaflet(BF_malaria_data) %>% 
+    addTiles() %>% 
+    addCircleMarkers(
+    ~longitude, ~latitude,
+    fillOpacity = 1,
+    fillColor = ~pal(prevalence),
+    radius = ~prevalence * 10,
+    stroke = TRUE,
+    weight = 1
+    ) %>% 
+    addLegend(pal = pal, values = ~prevalence)`,
+        output:``,
+        heading:`Exploring the Spatial Clustering using Malaria point prevalence data to calculate
+        prevalence.`
+    },
+    week8:{
+code:`install.packages "tm"
+install packages("stringdist") install packages"proxy"
+library(tm)
+library(proxy)
+corpuss-Corpus|VectorSourcel"Hi how are you.I am fine with your Pleasure")) corpus<-tm_map(corpus,content _transformer(tolower))
+corpuss-tm_map/corpus, removePunctuation)
+corpuss-tm_map/corpus,removeWords,stopwords"english))
+tdms-TermDocumentMatrix(corpus)
+cosine _similarity<-function(x)1-proxy: dist/x,method="cosine"
+similarity_ matrix<-cosine _similarity/(as.matrix(tdm))
+similarity_ matrix<-as.matrixsimilarity_matrix)
+diag(similarity_matrix<0
+query_index<-1
+relevant_docs<-sort(similarity_matrix,query_index],decreasing =TRUE)`,
+        output:``,
+        heading:`create an information retrieval program in data mining using R and the
+        output display in similarity matrix`
+    },
+    addmatrices:{
+code:`matrix1<-matrix(c(1,2,3,4),2,2)
+matrix2<-matrix(c(5,6,7,8),2,2)
+cat("matrix1/n")
+print(matrix1)
+cat("matrix2/n")
+print(matrix2)
+print("Result matrix /n")
+final<-matrix1+matrix2
+print(final)`,
+        output:``,
+        heading:`Write a R program to perform addition of given matrices`
+    },
+    strongnumber:{
+code:`factorial <- function(n) {
+if (n == 0 || n == 1) {
+    return(1)
+} else {
+    return(n * factorial(n - 1))
+}
+}
+is_strong_number <- function(num) {
+original_num <- num
+sum_of_factorials <- 0
+while (num > 0) {
+    digit <- num %% 10
+    sum_of_factorials <- sum_of_factorials + factorial(digit)
+    num <- num %/% 10
+}
+return(original_num == sum_of_factorials)
+}
+number_to_check <- 145
+result <- is_strong_number(number_to_check)
+if (result) {
+cat(number_to_check, "is a strong number.")
+} else {
+cat(number_to_check, "is not a strong number.")
+}
+          `,
+        output:``,
+        heading:`Write a R program to find the given number strong number or not`
+    },
+    multiplymatrix:{
+code:`#multiplication of matrices
+matrix_multiply <- function(mat1, mat2) {
+    if (ncol(mat1) != nrow(mat2)) {
+    stop("Number of columns in Matrix 1 must be equal to the number of rows in Matrix 2 for multiplication.")
+    }
+    
+    result <- mat1 %*% mat2
+    return(result)
+}
+
+matrix1 <- matrix(c(1, 2, 3, 4), nrow = 2, ncol = 2)
+matrix2 <- matrix(c(5, 6, 7, 8), nrow = 2, ncol = 2)
+
+result_matrix <- matrix_multiply(matrix1, matrix2)
+
+cat("Matrix 1:")
+print(matrix1)
+
+cat("Matrix 2:")
+print(matrix2)
+
+cat("Result Matrix:")
+print(result_matrix)
+
+`,
+        output:``,
+        heading:`Write a R program to perform the multiplication of given matrices`
+    },
+    sortsearch:{
+code:`numeric_vector <- c(3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5)
+sorted_numeric <- sort(numeric_vector)
+print(sorted_numeric)
+character_vector <- c("apple", "orange", "banana", "grape")
+sorted_character <- sort(character_vector)
+print(sorted_character)
+vector <- c(2, 7, 3, 8, 5, 10)
+indices_greater_than_5 <- which(vector > 5)
+print(indices_greater_than_5)`,
+        output:``,
+        heading:`Write a R program to perform the sorting and searching operations.`
+    },
+    Qonea:{
+code:`Dataset = read.csv("dataset.csv")
+View(Dataset)
+
+Dataset$Age = ifelse(is.na(Dataset$Age),
+                        ave(Dataset$Age, FUN = function(x) mean(x, na.rm=TRUE)),
+                        Dataset$Age)
+                        
+Dataset$Salary = ifelse(is.na(Dataset$Salary),
+                        ave(Dataset$Salary, FUN = function(x) mean(x, na.rm=TRUE)),
+                        Dataset$Salary)
+`,
+        output:``,
+        heading:`Import Data and Raed the data from  dataset.csv and perform the following task checking for missing values from the dataset`
+    },
+    Qoneb:{
+code:`# Data for 5 subjects
+subjects <- c("Math", "Science", "History", "English", "Art")
+scores <- c(85, 78, 92, 88, 70)
+
+# Create a bar plot
+barplot(scores, names.arg = subjects, col = "skyblue", main = "Scores in 5 Subjects", xlab = "Subjects", ylab = "Scores")
+`,
+output:``,
+heading:`Write a r program to create a simple bar plot of five subjects marks`
+    },
+    Qtwoa:{
+code:`state_table <- data.frame(key=c("CA", "NY", "ON", "QU"), country=c("USA", "USA", "Canada", "Canada"))
+month_table <- data.frame(key=1:6, quarter=c("Q1", "Q1", "Q2", "Q2", "Q3", "Q3"))
+prod_table <- data.frame(key=c("Printer", "Tablet", "Laptop"), price=c(225, 570, 1120))
+gen_sales <- function(n) {
+    loc <- sample(state_table$key, n, replace=T, prob=c(2, 2, 1, 1))
+    time_month <- sample(month_table$key, n, replace=T)
+    time_year <- sample(2012:2013, n, replace=T)
+    prod <- sample(prod_table$key, n, replace=T, prob=c(1, 3, 2))
+    unit <- sample(1:2, n, replace=T, prob=c(10, 3))
+    amount <- unit * prod_table$price[match(prod, prod_table$key)]
+    sales <- data.frame(month=time_month, year=time_year, loc=loc, prod=prod, unit=unit, amount=amount)
+    sales <- sales[order(sales$year, sales$month),]
+    return(sales)
+}
+sales_fact <- gen_sales(100)
+revenue_cube <- tapply(sales_fact$amount, sales_fact[,c("prod", "month", "year", "loc")], sum)
+revenue_cube
+dimnames(revenue_cube)
+revenue_cube[, "1", "2012",]
+revenue_cube["Tablet", "1", "2012",]`,
+        output:``,
+        heading:`Extracting the data usimg sales data and performing various OLAP operations like Slice and visualizing th emutlidimensional data for analysis.`
+    },
+    Qtwob:{
+code:`# Function to perform addition
+add <- function(a, b) {
+    return(a + b)
+}
+
+# Function to perform subtraction
+subtract <- function(a, b) {
+    return(a - b)
+}
+
+# Function to perform multiplication
+multiply <- function(a, b) {
+    return(a * b)
+}
+
+# Function to perform division
+divide <- function(a, b) {
+    if(b != 0) {
+    return(a / b)
+    } else {
+    return("Cannot divide by zero!")
+    }
+}
+
+# Input numbers
+num1 <- as.numeric(readline("Enter first number: "))
+num2 <- as.numeric(readline("Enter second number: "))
+
+# Choose operation
+operation <- readline("Choose operation (+, -, *, /): ")
+
+# Perform calculation based on the chosen operation
+result <- switch(operation,
+                    "+" = add(num1, num2),
+                    "-" = subtract(num1, num2),
+                    "*" = multiply(num1, num2),
+                    "/" = divide(num1, num2),
+                    "Invalid operation")
+
+# Display the result
+cat("Result:", result)`,
+output:``,
+heading:`Write a r program to implement simple calculator`
+    },
+    Qeighta:{
+code:`library(tm)
+docs <- Corpus(DirSource("C:/Users/Pilli Akshitha/OneDrive/Desktop/dm", encoding = "UTF-8"))
+print(docs)
+to_space <- content_transformer(function(x, pattern)
+{ 
+    return (gsub(pattern, " ", x))
+}
+)
+docs <- tm_map(docs, to_space, ":")
+docs <- tm_map(docs, to_space, "-")
+docs <- tm_map(docs, to_space, "'")
+docs <- tm_map(docs, to_space, "’")
+docs <- tm_map(docs, to_space, '"')
+docs <- tm_map(docs, to_space, ";")
+docs <- tm_map(docs, removePunctuation)
+docs <- tm_map(docs, content_transformer(tolower))
+docs <- tm_map(docs, removeNumbers)
+docs <- tm_map(docs, removeWords, stopwords())
+docs <- tm_map(docs, stripWhitespace)
+inspect(docs[[1]])
+dtm <- DocumentTermMatrix(docs)
+inspect(dtm)`,
+        output:``,
+        heading:`To create an information retrieval program in data mining using R from multiple files`
+    },
+    Qeightb:{
+code:`binarySearch = function(arr,item) {
+    low <- 1; high <- length(arr)
+    while (low <= high){
+        mid <- as.integer(round((low + high) / 2)) 
+        if (abs(arr[mid] - item) ==0) {
+            return(mid)
+        } else if (arr[mid] < item) {
+            low <- mid + 1
+        } else {
+            high <- mid - 1
+        }
+    }
+    return(0)
+}
+arr <- c(4, 0, 3, 1, 5, 6, 2)
+sorted_arr <- sort(arr)
+item <- 4
+cat("Array ", arr, "Sorted array ",sorted_arr,"item = ", item, )
+index <- binarySearch(sorted_arr, item)
+if (index!=0){
+    cat("Element is present at index ", index, )
+}else{
+    cat("element not found")
+}`,
+        output:``,
+        heading:`Write a R program to implement binary search in an array`
+    },
+    Qfoura:{
+code:`install.packages("caret")
+install.packages("gridExtra")
+library(caret)
+library(dplyr)
+library(gridExtra)
+mushroom_data <- read.csv("C:/Users/ADITYA/OneDrive/Desktop/mushroom_dataset.csv")
+mushroom_data <- as.data.frame(mushroom_data)
+set.seed(1)
+test_idx <- createDataPartition(y = mushroom_data$class, times = 1, p = 0.2, list = FALSE)
+
+train_data = mushroom_data[-test_idx,]
+test_data = mushroom_data[test_idx,]
+rm(mushroom_data, test_idx)
+feature_ditribution_plot <- function(data){
+    
+    plots <- list()
+    
+    for (i in 1:(ncol(data)-1))
+    {
+    summarized_data <- data %>% group_by(class, .[,i+1]) %>% summarise(n = n())
+    names(summarized_data)[2] <- "attr"
+    plot <- summarized_data %>% ggplot(aes(attr , class)) + geom_point(aes(size=n)) +
+        xlab(names(data)[i+1]) + ylab("Edibility") 
+    plots[[i]] <- plot
+    }
+    rm(summarized_data, i, plot)
+    grid.arrange(grobs=plots,ncol=3)
+}
+feature_ditribution_plot(train_data)`,
+        output:``,
+        heading:`Train mushroom set using classification rule`
     }
 
 }

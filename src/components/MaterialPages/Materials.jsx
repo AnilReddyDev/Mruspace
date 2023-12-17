@@ -18,6 +18,11 @@ export default function Materials() {
   {key:8,subject:"M1"},
   {key:9,subject:"AP"},
   {key:10,subject:"DAA"},
+  {key:11,subject:"WDD"},
+  {key:12,subject:"IOT"},
+  {key:13,subject:"CN"},
+  {key:14,subject:"FAM"},
+  {key:15,subject:"EVS"},
 
     // ... other subjects
   ];

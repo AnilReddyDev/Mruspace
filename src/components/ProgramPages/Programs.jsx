@@ -10,12 +10,12 @@ export default function Programs() {
 
   // List of subject buttons
   const btns = [
-    {key:1,subject:"Python_Programming" },
-  {key:2,subject:"Data_Structures_using_python" },
-  {key:3,subject:"Web_Development"},
-  {key:4,subject:"Java_Programming"},
-  {key:5,subject:"AI_Programming"},
-  {key:6,subject:"Data_Mining"},
+    {key:1,subject:"Data_Structures_using_python" },
+    {key:2,subject:"Web_Development"},
+    {key:3,subject:"Data_Mining"},
+    {key:4,subject:"Java_Programming"},
+    {key:5,subject:"AI_Programming"},
+    {key:6,subject:"Python_Programming" },
     // ... other subjects
   ];
 
